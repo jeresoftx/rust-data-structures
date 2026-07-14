@@ -1,0 +1,32 @@
+flowchart TB
+    title["Trie: prefijos compartidos y terminales"]
+
+    root["root"]
+    c["c"]
+    a["a"]
+    r["r terminal: car"]
+    t1["t terminal: cart"]
+    t2["t terminal: cat"]
+    d["d"]
+    o["o"]
+    g["g terminal: dog"]
+
+    root --> c
+    c --> a
+    a --> r
+    r --> t1
+    a --> t2
+
+    root --> d
+    d --> o
+    o --> g
+
+    insert["insert(car)<br/>marca terminal al final"]
+    lookup["contains(ca)<br/>existe prefijo, no terminal"]
+    prefix["words_with_prefix(ca)<br/>recorre subarbol"]
+    remove["remove(car)<br/>desmarca terminal y poda si queda sin hijos"]
+
+    insert --> r
+    lookup --> a
+    prefix --> a
+    remove --> r

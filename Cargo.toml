@@ -85,6 +85,18 @@ path = "examples/soluciones/heap_top_k.rs"
 name = "solution_heap_dijkstra_frontier"
 path = "examples/soluciones/heap_dijkstra_frontier.rs"
 
+[[example]]
+name = "solution_trie_trace_prefixes"
+path = "examples/soluciones/trie_trace_prefixes.rs"
+
+[[example]]
+name = "solution_trie_autocomplete"
+path = "examples/soluciones/trie_autocomplete.rs"
+
+[[example]]
+name = "solution_trie_unicode_policy"
+path = "examples/soluciones/trie_unicode_policy.rs"
+
 [[bench]]
 name = "vector_bench"
 path = "benches/vector_bench.rs"
@@ -113,4 +125,9 @@ harness = false
 [[bench]]
 name = "heap_bench"
 path = "benches/heap_bench.rs"
+harness = false
+
+[[bench]]
+name = "trie_bench"
+path = "benches/trie_bench.rs"
 harness = false
