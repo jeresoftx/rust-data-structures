@@ -31,7 +31,7 @@ un algoritmo sea necesario para explicar la propia estructura.
 | # | Capitulo | Modulo | Estado |
 |---|----------|--------|--------|
 | 01 | Vector | `src/vector.rs` | benchmarked |
-| 02 | Linked List | `src/linked_list.rs` | planned |
+| 02 | Linked List | `src/linked_list.rs` | benchmarked |
 | 03 | Stack | `src/stack.rs` | planned |
 | 04 | Queue | `src/queue.rs` | planned |
 | 05 | Deque | `src/deque.rs` | planned |

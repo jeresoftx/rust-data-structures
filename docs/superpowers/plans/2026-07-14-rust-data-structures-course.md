@@ -163,11 +163,11 @@ For each chapter, complete the following checklist before moving to the next str
 - Create: `examples/linked_list_advanced.rs`
 - Create: `examples/linked_list_real_case.rs`
 
-- [ ] Teach nodes, ownership, pointers, head/tail, singly vs doubly linked lists, traversal, insertion, removal, and iterator design.
-- [ ] Prefer safe Rust. Any `unsafe` requires a `// SAFETY:` invariant and a written justification in the chapter.
-- [ ] Compare against vector, deque, and intrusive lists.
-- [ ] Include tests for empty list, push front/back, pop front/back, remove, iteration, and single-element transitions.
-- [ ] Include benchmarks that show where linked lists lose to vectors because of locality.
+- [x] Teach nodes, ownership, pointers, head/tail, singly vs doubly linked lists, traversal, insertion, removal, and iterator design.
+- [x] Prefer safe Rust. Any `unsafe` requires a `// SAFETY:` invariant and a written justification in the chapter.
+- [x] Compare against vector, deque, and intrusive lists.
+- [x] Include tests for empty list, push front/back, pop front/back, remove, iteration, and single-element transitions.
+- [x] Include benchmarks that show where linked lists lose to vectors because of locality.
 
 ### Task 7: Stack
 

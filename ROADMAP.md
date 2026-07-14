@@ -20,7 +20,7 @@ El checklist detallado vive en
 | # | Capitulo | Estado |
 |---|----------|--------|
 | 01 | Vector | benchmarked |
-| 02 | Linked List | planned |
+| 02 | Linked List | benchmarked |
 | 03 | Stack | planned |
 | 04 | Queue | planned |
 | 05 | Deque | planned |
