@@ -33,7 +33,7 @@ un algoritmo sea necesario para explicar la propia estructura.
 | 01 | Vector | `src/vector.rs` | benchmarked |
 | 02 | Linked List | `src/linked_list.rs` | benchmarked |
 | 03 | Stack | `src/stack.rs` | benchmarked |
-| 04 | Queue | `src/queue.rs` | planned |
+| 04 | Queue | `src/queue.rs` | benchmarked |
 | 05 | Deque | `src/deque.rs` | planned |
 | 06 | Heap | `src/heap.rs` | planned |
 | 07 | Trie | `src/trie.rs` | planned |

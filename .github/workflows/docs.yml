@@ -23,16 +23,19 @@ jobs:
           test -s docs/01-vector.md
           test -s docs/02-linked-list.md
           test -s docs/03-stack.md
+          test -s docs/04-queue.md
           test -s examples/README.md
           test -s tests/README.md
           test -s benches/README.md
           test -s benches/vector_bench.rs
           test -s benches/linked_list_bench.rs
           test -s benches/stack_bench.rs
+          test -s benches/queue_bench.rs
           test -s diagrams/README.md
           test -s diagrams/01-vector.mmd
           test -s diagrams/02-linked-list.mmd
           test -s diagrams/03-stack.mmd
+          test -s diagrams/04-queue.mmd
           test -s assets/README.md
 
           grep -q "Vector" docs/SUMMARY.md

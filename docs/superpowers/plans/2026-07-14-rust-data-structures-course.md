@@ -201,11 +201,11 @@ For each chapter, complete the following checklist before moving to the next str
 - Create: `examples/queue_advanced.rs`
 - Create: `examples/queue_real_case.rs`
 
-- [ ] Teach FIFO, enqueue, dequeue, front, back, circular buffers, and why naive vector removal is costly.
-- [ ] Compare linked-list queue, circular-buffer queue, and standard `VecDeque`.
-- [ ] Include real cases: schedulers, BFS frontier, request processing.
-- [ ] Include tests for empty dequeue, FIFO order, wraparound behavior, growth, and mixed operations.
-- [ ] Include benchmarks contrasting naive front removal and circular-buffer behavior.
+- [x] Teach FIFO, enqueue, dequeue, front, back, circular buffers, and why naive vector removal is costly.
+- [x] Compare linked-list queue, circular-buffer queue, and standard `VecDeque`.
+- [x] Include real cases: schedulers, BFS frontier, request processing.
+- [x] Include tests for empty dequeue, FIFO order, wraparound behavior, growth, and mixed operations.
+- [x] Include benchmarks contrasting naive front removal and circular-buffer behavior.
 
 ### Task 9: Deque
 

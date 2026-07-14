@@ -22,7 +22,7 @@ El checklist detallado vive en
 | 01 | Vector | benchmarked |
 | 02 | Linked List | benchmarked |
 | 03 | Stack | benchmarked |
-| 04 | Queue | planned |
+| 04 | Queue | benchmarked |
 | 05 | Deque | planned |
 | 06 | Heap | planned |
 | 07 | Trie | planned |
