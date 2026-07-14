@@ -1,4 +1,6 @@
 use rust_data_structures::vector::Vector;
+use std::cell::Cell;
+use std::rc::Rc;
 
 #[test]
 fn push_and_pop_preserve_lifo_order_at_the_back() {
@@ -77,4 +79,39 @@ fn iter_and_clear_expose_values_without_leaking_capacity() {
     assert!(values.is_empty());
     assert_eq!(values.capacity(), 8);
     assert_eq!(values.iter().next(), None);
+}
+
+#[test]
+fn remove_transfers_ownership_and_clear_drops_remaining_values() {
+    let drops = Rc::new(Cell::new(0));
+    let mut values = Vector::new();
+
+    values.push(DropCounter::new(Rc::clone(&drops)));
+    values.push(DropCounter::new(Rc::clone(&drops)));
+    values.push(DropCounter::new(Rc::clone(&drops)));
+
+    let removed = values.remove(1);
+    assert_eq!(drops.get(), 0);
+
+    drop(removed);
+    assert_eq!(drops.get(), 1);
+
+    values.clear();
+    assert_eq!(drops.get(), 3);
+}
+
+struct DropCounter {
+    drops: Rc<Cell<usize>>,
+}
+
+impl DropCounter {
+    fn new(drops: Rc<Cell<usize>>) -> Self {
+        Self { drops }
+    }
+}
+
+impl Drop for DropCounter {
+    fn drop(&mut self) {
+        self.drops.set(self.drops.get() + 1);
+    }
 }
