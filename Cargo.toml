@@ -25,7 +25,24 @@ path = "examples/soluciones/vector_insert_sorted.rs"
 name = "solution_vector_retain_prefix"
 path = "examples/soluciones/vector_retain_prefix.rs"
 
+[[example]]
+name = "solution_linked_list_reverse_input"
+path = "examples/soluciones/linked_list_reverse_input.rs"
+
+[[example]]
+name = "solution_linked_list_move_front_to_back"
+path = "examples/soluciones/linked_list_move_front_to_back.rs"
+
+[[example]]
+name = "solution_linked_list_remove_every_other"
+path = "examples/soluciones/linked_list_remove_every_other.rs"
+
 [[bench]]
 name = "vector_bench"
 path = "benches/vector_bench.rs"
+harness = false
+
+[[bench]]
+name = "linked_list_bench"
+path = "benches/linked_list_bench.rs"
 harness = false

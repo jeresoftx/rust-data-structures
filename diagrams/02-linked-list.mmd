@@ -1,0 +1,19 @@
+flowchart LR
+    title["Linked List: nodos enlazados por ownership"]
+
+    list["LinkedList<br/>head + len"]
+    node0["Node A<br/>value + next"]
+    node1["Node B<br/>value + next"]
+    node2["Node C<br/>value + next"]
+    none["None"]
+
+    list --> node0
+    node0 --> node1
+    node1 --> node2
+    node2 --> none
+
+    push_front["push_front(X)<br/>nuevo nodo apunta al head anterior"]
+    push_front --> list
+
+    push_back["push_back(X)<br/>recorre hasta next = None"]
+    push_back --> node2
