@@ -23,7 +23,7 @@ El checklist detallado vive en
 | 02 | Linked List | benchmarked |
 | 03 | Stack | benchmarked |
 | 04 | Queue | benchmarked |
-| 05 | Deque | planned |
+| 05 | Deque | benchmarked |
 | 06 | Heap | planned |
 | 07 | Trie | planned |
 | 08 | Graph | planned |

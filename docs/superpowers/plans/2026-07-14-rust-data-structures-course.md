@@ -220,11 +220,11 @@ For each chapter, complete the following checklist before moving to the next str
 - Create: `examples/deque_advanced.rs`
 - Create: `examples/deque_real_case.rs`
 
-- [ ] Teach double-ended queues, ring buffers, push/pop front/back, indexing tradeoffs, and growth.
-- [ ] Compare against stack, queue, vector, and linked list.
-- [ ] Include real cases: sliding-window algorithms, work queues, browser navigation.
-- [ ] Include tests for all four end operations, wraparound, growth, and order preservation.
-- [ ] Include benchmarks for front/back operations and indexed access where supported.
+- [x] Teach double-ended queues, ring buffers, push/pop front/back, indexing tradeoffs, and growth.
+- [x] Compare against stack, queue, vector, and linked list.
+- [x] Include real cases: sliding-window algorithms, work queues, browser navigation.
+- [x] Include tests for all four end operations, wraparound, growth, and order preservation.
+- [x] Include benchmarks for front/back operations and indexed access where supported.
 
 ### Task 10: Heap
 
