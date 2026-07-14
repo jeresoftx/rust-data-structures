@@ -1,0 +1,26 @@
+flowchart LR
+    title["Vector: longitud, capacidad y memoria contigua"]
+
+    subgraph metadata["Metadatos"]
+        len["len = 3"]
+        cap["capacity = 6"]
+    end
+
+    subgraph memory["Bloque contiguo"]
+        slot0["0: A"]
+        slot1["1: B"]
+        slot2["2: C"]
+        slot3["3: libre"]
+        slot4["4: libre"]
+        slot5["5: libre"]
+    end
+
+    len --> slot2
+    cap --> slot5
+    slot0 --> slot1 --> slot2 --> slot3 --> slot4 --> slot5
+
+    push["push(D)"]
+    push --> slot3
+
+    grow["Si len == capacity: crecer y mover"]
+    cap --> grow
