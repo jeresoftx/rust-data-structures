@@ -37,7 +37,7 @@ un algoritmo sea necesario para explicar la propia estructura.
 | 05 | Deque | `src/deque.rs` | benchmarked |
 | 06 | Heap | `src/heap.rs` | benchmarked |
 | 07 | Trie | `src/trie.rs` | benchmarked |
-| 08 | Graph | `src/graph.rs` | planned |
+| 08 | Graph | `src/graph.rs` | benchmarked |
 | 09 | B-Tree | `src/btree.rs` | planned |
 | 10 | HashMap | `src/hashmap.rs` | planned |
 | 11 | Bloom Filter | `src/bloom_filter.rs` | planned |

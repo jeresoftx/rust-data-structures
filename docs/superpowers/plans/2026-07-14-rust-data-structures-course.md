@@ -277,12 +277,12 @@ For each chapter, complete the following checklist before moving to the next str
 - Create: `examples/graph_advanced.rs`
 - Create: `examples/graph_real_case.rs`
 
-- [ ] Teach graph representation, directed vs undirected, weighted vs unweighted, adjacency list, adjacency matrix, edge list, and traversal API boundaries.
-- [ ] Keep algorithmic deep dives in `rust-algorithms`; this chapter owns representation and operations.
-- [ ] Compare representations by density, memory, and update/query patterns.
-- [ ] Include real cases: social graph, dependency graph, route map.
-- [ ] Include tests for node insertion, edge insertion, removal, directed edges, undirected edges, self-loops, and missing nodes.
-- [ ] Include benchmarks comparing adjacency list and adjacency matrix operations where implemented.
+- [x] Teach graph representation, directed vs undirected, weighted vs unweighted, adjacency list, adjacency matrix, edge list, and traversal API boundaries.
+- [x] Keep algorithmic deep dives in `rust-algorithms`; this chapter owns representation and operations.
+- [x] Compare representations by density, memory, and update/query patterns.
+- [x] Include real cases: social graph, dependency graph, route map.
+- [x] Include tests for node insertion, edge insertion, removal, directed edges, undirected edges, self-loops, and missing nodes.
+- [x] Include benchmarks comparing adjacency list and adjacency matrix operations where implemented.
 
 ### Task 13: B-Tree
 
