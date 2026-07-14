@@ -144,11 +144,11 @@ For each chapter, complete the following checklist before moving to the next str
 - Create: `examples/vector_advanced.rs`
 - Create: `examples/vector_real_case.rs`
 
-- [ ] Teach contiguous memory, capacity, length, growth, indexing, push, pop, insert, remove, iteration, and amortized complexity.
-- [ ] Explain why vector comes first: it anchors ownership, allocation, cache locality, and the rest of the course.
-- [ ] Compare against arrays, linked lists, deques, and slices.
-- [ ] Include tests for empty vector, growth, indexing bounds, insertion at beginning/middle/end, removal, iteration, and drop behavior where observable.
-- [ ] Include benchmarks for push growth, random access, insertion at front, and insertion at end.
+- [x] Teach contiguous memory, capacity, length, growth, indexing, push, pop, insert, remove, iteration, and amortized complexity.
+- [x] Explain why vector comes first: it anchors ownership, allocation, cache locality, and the rest of the course.
+- [x] Compare against arrays, linked lists, deques, and slices.
+- [x] Include tests for empty vector, growth, indexing bounds, insertion at beginning/middle/end, removal, iteration, and drop behavior where observable.
+- [x] Include benchmarks for push growth, random access, insertion at front, and insertion at end.
 
 ### Task 6: Linked List
 

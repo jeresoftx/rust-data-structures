@@ -20,10 +20,13 @@ jobs:
           test -s AGENTS.md
           test -s ROADMAP.md
           test -s docs/SUMMARY.md
+          test -s docs/01-vector.md
           test -s examples/README.md
           test -s tests/README.md
           test -s benches/README.md
+          test -s benches/vector_bench.rs
           test -s diagrams/README.md
+          test -s diagrams/01-vector.mmd
           test -s assets/README.md
 
           grep -q "Vector" docs/SUMMARY.md
