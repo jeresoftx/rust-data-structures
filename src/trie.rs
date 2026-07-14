@@ -163,7 +163,7 @@ impl Trie {
 
     /// Devuelve palabras en orden lexicografico por `char` para un prefijo.
     ///
-    /// Complejidad: O(m log a + r), donde `r` es el tamaño de la salida.
+    /// Complejidad: O(m log a + r), donde `r` es el tamano de la salida.
     ///
     /// ```
     /// use rust_data_structures::trie::Trie;

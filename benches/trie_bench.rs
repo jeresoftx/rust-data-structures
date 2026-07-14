@@ -71,5 +71,7 @@ fn bench_sorted_vector_prefix_search(words: &[String]) -> Duration {
 }
 
 fn generate_words() -> Vec<String> {
-    (0..SIZE).map(|index| format!("course-{index:05}")).collect()
+    (0..SIZE)
+        .map(|index| format!("course-{index:05}"))
+        .collect()
 }

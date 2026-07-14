@@ -258,11 +258,11 @@ For each chapter, complete the following checklist before moving to the next str
 - Create: `examples/trie_advanced.rs`
 - Create: `examples/trie_real_case.rs`
 
-- [ ] Teach prefix trees, terminal markers, insertion, lookup, deletion, prefix search, and memory tradeoffs.
-- [ ] Compare against hashmap, sorted vector, B-tree, radix tree, and finite automata.
-- [ ] Include real cases: autocomplete, dictionary lookup, routing prefixes.
-- [ ] Include tests for empty strings, shared prefixes, deletion without breaking siblings, prefix queries, and Unicode policy.
-- [ ] Include benchmarks for lookup and prefix search.
+- [x] Teach prefix trees, terminal markers, insertion, lookup, deletion, prefix search, and memory tradeoffs.
+- [x] Compare against hashmap, sorted vector, B-tree, radix tree, and finite automata.
+- [x] Include real cases: autocomplete, dictionary lookup, routing prefixes.
+- [x] Include tests for empty strings, shared prefixes, deletion without breaking siblings, prefix queries, and Unicode policy.
+- [x] Include benchmarks for lookup and prefix search.
 
 ### Task 12: Graph
 
