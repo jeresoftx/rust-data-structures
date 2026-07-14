@@ -49,6 +49,18 @@ path = "examples/soluciones/stack_balanced_parentheses.rs"
 name = "solution_stack_undo_redo"
 path = "examples/soluciones/stack_undo_redo.rs"
 
+[[example]]
+name = "solution_queue_trace_order"
+path = "examples/soluciones/queue_trace_order.rs"
+
+[[example]]
+name = "solution_queue_round_robin"
+path = "examples/soluciones/queue_round_robin.rs"
+
+[[example]]
+name = "solution_queue_filter_ready_jobs"
+path = "examples/soluciones/queue_filter_ready_jobs.rs"
+
 [[bench]]
 name = "vector_bench"
 path = "benches/vector_bench.rs"
@@ -62,4 +74,9 @@ harness = false
 [[bench]]
 name = "stack_bench"
 path = "benches/stack_bench.rs"
+harness = false
+
+[[bench]]
+name = "queue_bench"
+path = "benches/queue_bench.rs"
 harness = false
