@@ -24,7 +24,7 @@ El checklist detallado vive en
 | 03 | Stack | benchmarked |
 | 04 | Queue | benchmarked |
 | 05 | Deque | benchmarked |
-| 06 | Heap | planned |
+| 06 | Heap | benchmarked |
 | 07 | Trie | planned |
 | 08 | Graph | planned |
 | 09 | B-Tree | planned |

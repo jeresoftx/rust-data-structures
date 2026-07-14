@@ -35,7 +35,7 @@ un algoritmo sea necesario para explicar la propia estructura.
 | 03 | Stack | `src/stack.rs` | benchmarked |
 | 04 | Queue | `src/queue.rs` | benchmarked |
 | 05 | Deque | `src/deque.rs` | benchmarked |
-| 06 | Heap | `src/heap.rs` | planned |
+| 06 | Heap | `src/heap.rs` | benchmarked |
 | 07 | Trie | `src/trie.rs` | planned |
 | 08 | Graph | `src/graph.rs` | planned |
 | 09 | B-Tree | `src/btree.rs` | planned |

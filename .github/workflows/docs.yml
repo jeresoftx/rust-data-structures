@@ -25,6 +25,7 @@ jobs:
           test -s docs/03-stack.md
           test -s docs/04-queue.md
           test -s docs/05-deque.md
+          test -s docs/06-heap.md
           test -s examples/README.md
           test -s tests/README.md
           test -s benches/README.md
@@ -33,12 +34,14 @@ jobs:
           test -s benches/stack_bench.rs
           test -s benches/queue_bench.rs
           test -s benches/deque_bench.rs
+          test -s benches/heap_bench.rs
           test -s diagrams/README.md
           test -s diagrams/01-vector.mmd
           test -s diagrams/02-linked-list.mmd
           test -s diagrams/03-stack.mmd
           test -s diagrams/04-queue.mmd
           test -s diagrams/05-deque.mmd
+          test -s diagrams/06-heap.mmd
           test -s assets/README.md
 
           grep -q "Vector" docs/SUMMARY.md

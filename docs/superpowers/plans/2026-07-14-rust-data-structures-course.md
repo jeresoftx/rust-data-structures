@@ -239,11 +239,11 @@ For each chapter, complete the following checklist before moving to the next str
 - Create: `examples/heap_advanced.rs`
 - Create: `examples/heap_real_case.rs`
 
-- [ ] Teach binary heap representation, heap property, sift up, sift down, push, pop, peek, heapify, min-heap vs max-heap.
-- [ ] Compare heap against sorted vector, balanced tree, and priority queue APIs.
-- [ ] Include real cases: priority scheduling, Dijkstra frontier, top-k queries.
-- [ ] Include tests for ordering, duplicates, heapify, custom comparators if supported, and empty pop.
-- [ ] Include benchmarks for push/pop and heapify.
+- [x] Teach binary heap representation, heap property, sift up, sift down, push, pop, peek, heapify, min-heap vs max-heap.
+- [x] Compare heap against sorted vector, balanced tree, and priority queue APIs.
+- [x] Include real cases: priority scheduling, Dijkstra frontier, top-k queries.
+- [x] Include tests for ordering, duplicates, heapify, custom comparators if supported, and empty pop.
+- [x] Include benchmarks for push/pop and heapify.
 
 ### Task 11: Trie
 
