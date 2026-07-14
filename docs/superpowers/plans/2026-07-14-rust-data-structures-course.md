@@ -12,11 +12,11 @@
 
 ## Source Decisions
 
-- [ ] Re-read RFC-0001 sections before execution: `§1`, `§2`, `§10`, `§12`, `§13`, `§14`, `§15`, `§16`, `§17`, `§20`, `§21`.
-- [ ] Treat `rust-data-structures` as a course repository, not a generic crate.
-- [ ] Keep the course sequence fixed unless a future RFC changes it: vector, linked list, stack, queue, deque, heap, trie, graph, btree, hashmap, bloom filter, skip list.
-- [ ] Keep structure representation and operations canonical here; algorithms over those structures belong in `rust-algorithms` unless they are necessary to explain the structure.
-- [ ] Avoid creating content for future courses inside this repo.
+- [x] Re-read RFC-0001 sections before execution: `§1`, `§2`, `§10`, `§12`, `§13`, `§14`, `§15`, `§16`, `§17`, `§20`, `§21`.
+- [x] Treat `rust-data-structures` as a course repository, not a generic crate.
+- [x] Keep the course sequence fixed unless a future RFC changes it: vector, linked list, stack, queue, deque, heap, trie, graph, btree, hashmap, bloom filter, skip list.
+- [x] Keep structure representation and operations canonical here; algorithms over those structures belong in `rust-algorithms` unless they are necessary to explain the structure.
+- [x] Avoid creating content for future courses inside this repo.
 
 ## Repository Foundation
 
@@ -30,14 +30,14 @@
 - Create: `LICENSE-APACHE`
 - Create: `LICENSE-CC-BY-SA-4.0.md`
 
-- [ ] Create `README.md` with the course purpose, its place in Semestre 1, how to navigate `docs/`, `src/`, `examples/`, `tests/`, `benches/`, and `diagrams/`.
-- [ ] State in `README.md` that this repo teaches data structures in Rust as part of Jeresoft Academy RFC-0001.
-- [ ] Add the planned chapter table in `README.md` with status columns: `planned`, `draft`, `implemented`, `tested`, `benchmarked`, `reviewed`, `published`.
-- [ ] Create `AGENTS.md` from RFC-0001 §20, instantiated for `colección = camino troncal / Semestre 1` and `tema = estructuras de datos en Rust`.
-- [ ] Create `ROADMAP.md` with the twelve chapters and the no-deadlines project philosophy from RFC-0001 §1.
-- [ ] Add dual licensing: MIT OR Apache-2.0 for code, CC BY-SA 4.0 for educational content.
-- [ ] Run `git status --short` and confirm only intentional foundation files are pending.
-- [ ] Commit: `chore: establish data structures repository foundation`.
+- [x] Create `README.md` with the course purpose, its place in Semestre 1, how to navigate `docs/`, `src/`, `examples/`, `tests/`, `benches/`, and `diagrams/`.
+- [x] State in `README.md` that this repo teaches data structures in Rust as part of Jeresoft Academy RFC-0001.
+- [x] Add the planned chapter table in `README.md` with status columns: `planned`, `draft`, `implemented`, `tested`, `benchmarked`, `reviewed`, `published`.
+- [x] Create `AGENTS.md` from RFC-0001 §20, instantiated for `colección = camino troncal / Semestre 1` and `tema = estructuras de datos en Rust`.
+- [x] Create `ROADMAP.md` with the twelve chapters and the no-deadlines project philosophy from RFC-0001 §1.
+- [x] Add dual licensing: MIT OR Apache-2.0 for code, CC BY-SA 4.0 for educational content.
+- [x] Run `git status --short` and confirm only intentional foundation files are pending.
+- [x] Commit: `chore: establish data structures repository foundation`.
 
 ### Task 2: Create Cargo Crate Skeleton
 
@@ -57,13 +57,13 @@
 - Create: `src/bloom_filter.rs`
 - Create: `src/skip_list.rs`
 
-- [ ] Create `Cargo.toml` with package name `rust-data-structures`, edition, license expression `MIT OR Apache-2.0`, repository URL, and no unnecessary dependencies.
-- [ ] Create `src/lib.rs` with crate-level documentation explaining the course and public `pub mod` declarations for all twelve structures.
-- [ ] Create one empty module file per structure with a module-level doc-comment describing the learning goal.
-- [ ] Run `cargo fmt`.
-- [ ] Run `cargo check`.
-- [ ] Run `cargo test`.
-- [ ] Commit: `chore: scaffold data structures crate`.
+- [x] Create `Cargo.toml` with package name `rust-data-structures`, edition, license expression `MIT OR Apache-2.0`, repository URL, and no unnecessary dependencies.
+- [x] Create `src/lib.rs` with crate-level documentation explaining the course and public `pub mod` declarations for all twelve structures.
+- [x] Create one empty module file per structure with a module-level doc-comment describing the learning goal.
+- [x] Run `cargo fmt`.
+- [x] Run `cargo check`.
+- [x] Run `cargo test`.
+- [x] Commit: `chore: scaffold data structures crate`.
 
 ### Task 3: Create Course Directory Layout
 
@@ -76,13 +76,13 @@
 - Create: `diagrams/`
 - Create: `assets/`
 
-- [ ] Create the standard RFC-0001 §15 directories.
-- [ ] Add `docs/SUMMARY.md` listing the twelve chapters in order.
-- [ ] Add `diagrams/README.md` explaining Mermaid-first diagram policy.
-- [ ] Add `examples/README.md` explaining basic, intermediate, advanced, and real-case examples.
-- [ ] Add `tests/README.md` explaining integration-test naming by structure.
-- [ ] Add `benches/README.md` explaining that benchmarks validate complexity claims, not vanity performance.
-- [ ] Commit: `chore: add course content directories`.
+- [x] Create the standard RFC-0001 §15 directories.
+- [x] Add `docs/SUMMARY.md` listing the twelve chapters in order.
+- [x] Add `diagrams/README.md` explaining Mermaid-first diagram policy.
+- [x] Add `examples/README.md` explaining basic, intermediate, advanced, and real-case examples.
+- [x] Add `tests/README.md` explaining integration-test naming by structure.
+- [x] Add `benches/README.md` explaining that benchmarks validate complexity claims, not vanity performance.
+- [x] Commit: `chore: add course content directories`.
 
 ### Task 4: Add CI and Quality Gates
 
@@ -90,10 +90,10 @@
 - Create: `.github/workflows/ci.yml`
 - Create: `.github/workflows/docs.yml`
 
-- [ ] Add CI jobs for `cargo fmt --check`, `cargo clippy --all-targets --all-features -- -D warnings`, `cargo test --all-targets`, and `cargo test --doc`.
-- [ ] Add a docs workflow that validates Markdown links and builds mdBook-compatible docs once the docs tool is chosen for this repo.
-- [ ] Keep the initial workflow dependency-free unless a tool is justified in `README.md`.
-- [ ] Commit: `ci: add rust quality gates`.
+- [x] Add CI jobs for `cargo fmt --check`, `cargo clippy --all-targets --all-features -- -D warnings`, `cargo test --all-targets`, and `cargo test --doc`.
+- [x] Add a docs workflow that validates Markdown links and builds mdBook-compatible docs once the docs tool is chosen for this repo.
+- [x] Keep the initial workflow dependency-free unless a tool is justified in `README.md`.
+- [x] Commit: `ci: add rust quality gates`.
 
 ## Chapter Production Pipeline
 
@@ -391,4 +391,3 @@ For each chapter, complete the following checklist before moving to the next str
 
 1. **Subagent-Driven:** dispatch a fresh worker per major task or per chapter, then review each result before continuing.
 2. **Inline Execution:** execute the checklist in this session with checkpoints after foundation, CI, and each chapter.
-
