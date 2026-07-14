@@ -61,6 +61,18 @@ path = "examples/soluciones/queue_round_robin.rs"
 name = "solution_queue_filter_ready_jobs"
 path = "examples/soluciones/queue_filter_ready_jobs.rs"
 
+[[example]]
+name = "solution_deque_trace_ends"
+path = "examples/soluciones/deque_trace_ends.rs"
+
+[[example]]
+name = "solution_deque_sliding_window"
+path = "examples/soluciones/deque_sliding_window.rs"
+
+[[example]]
+name = "solution_deque_browser_history"
+path = "examples/soluciones/deque_browser_history.rs"
+
 [[bench]]
 name = "vector_bench"
 path = "benches/vector_bench.rs"
@@ -79,4 +91,9 @@ harness = false
 [[bench]]
 name = "queue_bench"
 path = "benches/queue_bench.rs"
+harness = false
+
+[[bench]]
+name = "deque_bench"
+path = "benches/deque_bench.rs"
 harness = false
