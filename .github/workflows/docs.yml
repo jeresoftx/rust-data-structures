@@ -1,0 +1,30 @@
+name: Docs
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate course inventory
+        run: |
+          set -euo pipefail
+
+          test -s README.md
+          test -s AGENTS.md
+          test -s ROADMAP.md
+          test -s docs/SUMMARY.md
+          test -s examples/README.md
+          test -s tests/README.md
+          test -s benches/README.md
+          test -s diagrams/README.md
+          test -s assets/README.md
+
+          grep -q "Vector" docs/SUMMARY.md
+          grep -q "Skip List" docs/SUMMARY.md
