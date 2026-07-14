@@ -12,3 +12,15 @@ name = "rust_data_structures"
 path = "src/lib.rs"
 
 [dependencies]
+
+[[example]]
+name = "solution_vector_trace_growth"
+path = "examples/soluciones/vector_trace_growth.rs"
+
+[[example]]
+name = "solution_vector_insert_sorted"
+path = "examples/soluciones/vector_insert_sorted.rs"
+
+[[example]]
+name = "solution_vector_retain_prefix"
+path = "examples/soluciones/vector_retain_prefix.rs"
