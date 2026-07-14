@@ -97,6 +97,18 @@ path = "examples/soluciones/trie_autocomplete.rs"
 name = "solution_trie_unicode_policy"
 path = "examples/soluciones/trie_unicode_policy.rs"
 
+[[example]]
+name = "solution_graph_dependency_edges"
+path = "examples/soluciones/graph_dependency_edges.rs"
+
+[[example]]
+name = "solution_graph_social_neighbors"
+path = "examples/soluciones/graph_social_neighbors.rs"
+
+[[example]]
+name = "solution_graph_route_matrix"
+path = "examples/soluciones/graph_route_matrix.rs"
+
 [[bench]]
 name = "vector_bench"
 path = "benches/vector_bench.rs"
@@ -130,4 +142,9 @@ harness = false
 [[bench]]
 name = "trie_bench"
 path = "benches/trie_bench.rs"
+harness = false
+
+[[bench]]
+name = "graph_bench"
+path = "benches/graph_bench.rs"
 harness = false

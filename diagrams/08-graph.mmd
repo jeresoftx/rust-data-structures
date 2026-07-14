@@ -1,0 +1,42 @@
+flowchart TB
+    title["Graph: representaciones y operaciones"]
+
+    subgraph logical["Modelo logico"]
+        a["Nodo A"]
+        b["Nodo B"]
+        c["Nodo C"]
+        a -- "peso 7" --> b
+        b -- "peso 2" --> c
+        c -- "peso 4" --> a
+    end
+
+    subgraph list["Lista de adyacencia"]
+        la["A: [(B, 7)]"]
+        lb["B: [(C, 2)]"]
+        lc["C: [(A, 4)]"]
+    end
+
+    subgraph matrix["Matriz de adyacencia"]
+        m1["A,B = 7"]
+        m2["B,C = 2"]
+        m3["C,A = 4"]
+        m4["celdas vacias = sin arista"]
+    end
+
+    subgraph edge_list["Lista de aristas"]
+        e1["(A, B, 7)"]
+        e2["(B, C, 2)"]
+        e3["(C, A, 4)"]
+    end
+
+    logical --> list
+    logical --> matrix
+    logical --> edge_list
+
+    choose_sparse["Grafo disperso<br/>pocas aristas por nodo"]
+    choose_dense["Grafo denso<br/>muchas consultas de existencia"]
+    choose_export["Serializacion o auditoria<br/>recorrer aristas"]
+
+    choose_sparse --> list
+    choose_dense --> matrix
+    choose_export --> edge_list
