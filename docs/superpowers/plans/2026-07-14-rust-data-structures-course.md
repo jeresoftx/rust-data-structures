@@ -182,11 +182,11 @@ For each chapter, complete the following checklist before moving to the next str
 - Create: `examples/stack_advanced.rs`
 - Create: `examples/stack_real_case.rs`
 
-- [ ] Teach LIFO, push, pop, peek, underflow, implementation over vector, and why stack is an interface more than a storage strategy.
-- [ ] Compare vector-backed stack against linked-list-backed stack.
-- [ ] Include real cases: call stack, undo history, expression parsing.
-- [ ] Include tests for empty pop, peek, LIFO order, clear, and mixed operations.
-- [ ] Include benchmarks for vector-backed operations and explain why most are O(1).
+- [x] Teach LIFO, push, pop, peek, underflow, implementation over vector, and why stack is an interface more than a storage strategy.
+- [x] Compare vector-backed stack against linked-list-backed stack.
+- [x] Include real cases: call stack, undo history, expression parsing.
+- [x] Include tests for empty pop, peek, LIFO order, clear, and mixed operations.
+- [x] Include benchmarks for vector-backed operations and explain why most are O(1).
 
 ### Task 8: Queue
 
