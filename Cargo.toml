@@ -37,6 +37,18 @@ path = "examples/soluciones/linked_list_move_front_to_back.rs"
 name = "solution_linked_list_remove_every_other"
 path = "examples/soluciones/linked_list_remove_every_other.rs"
 
+[[example]]
+name = "solution_stack_trace_operations"
+path = "examples/soluciones/stack_trace_operations.rs"
+
+[[example]]
+name = "solution_stack_balanced_parentheses"
+path = "examples/soluciones/stack_balanced_parentheses.rs"
+
+[[example]]
+name = "solution_stack_undo_redo"
+path = "examples/soluciones/stack_undo_redo.rs"
+
 [[bench]]
 name = "vector_bench"
 path = "benches/vector_bench.rs"
@@ -45,4 +57,9 @@ harness = false
 [[bench]]
 name = "linked_list_bench"
 path = "benches/linked_list_bench.rs"
+harness = false
+
+[[bench]]
+name = "stack_bench"
+path = "benches/stack_bench.rs"
 harness = false
