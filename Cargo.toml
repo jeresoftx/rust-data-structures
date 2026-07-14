@@ -1,0 +1,14 @@
+[package]
+name = "rust-data-structures"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/jeresoftx/rust-data-structures"
+description = "Estructuras de datos en Rust para Jeresoft Academy."
+readme = "README.md"
+
+[lib]
+name = "rust_data_structures"
+path = "src/lib.rs"
+
+[dependencies]
