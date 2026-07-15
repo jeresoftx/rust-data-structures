@@ -1,0 +1,33 @@
+flowchart TB
+    title["Skip List: niveles probabilisticos"]
+
+    search["buscar 30"]
+
+    subgraph level3["Nivel 3"]
+        h3["head"] --> n30_3["30"] --> end3["nil"]
+    end
+
+    subgraph level2["Nivel 2"]
+        h2["head"] --> n10_2["10"] --> n30_2["30"] --> end2["nil"]
+    end
+
+    subgraph level1["Nivel 1"]
+        h1["head"] --> n10_1["10"] --> n20_1["20"] --> n30_1["30"] --> n40_1["40"] --> end1["nil"]
+    end
+
+    search --> h3
+    h3 --> n30_3
+    h2 --> n10_2
+    n10_2 --> n30_2
+    n10_1 --> n20_1 --> n30_1
+
+    insert["insert<br/>elige altura con moneda sesgada"]
+    remove["remove<br/>actualiza enlaces por nivel"]
+    iterate["iter<br/>recorre nivel 1"]
+    expected["busqueda esperada<br/>O(log n)"]
+
+    level3 --> expected
+    level2 --> expected
+    level1 --> iterate
+    insert --> level1
+    remove --> level2
