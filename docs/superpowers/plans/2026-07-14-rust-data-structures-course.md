@@ -371,21 +371,21 @@ For each chapter, complete the following checklist before moving to the next str
 
 ## Final Course Completion
 
-- [ ] Every public item has doc-comments with examples and complexity notes.
-- [ ] Every chapter has the eleven required RFC-0001 §14 sections; visualization is either present or explicitly justified as not applicable.
-- [ ] Every chapter has four to eight exercises across levels 1 to 4.
-- [ ] Every level 1 to 3 exercise has a solution in `examples/soluciones/`.
-- [ ] Every level 4 exercise has a tradeoff discussion.
-- [ ] Every structure has unit tests, integration tests, doctests, and benchmarks where meaningful.
-- [ ] `cargo fmt --check` passes.
-- [ ] `cargo clippy --all-targets --all-features -- -D warnings` passes.
-- [ ] `cargo test --all-targets` passes.
-- [ ] `cargo test --doc` passes.
-- [ ] Documentation builds or validates without broken links.
-- [ ] README status table and ROADMAP match the actual repo state.
-- [ ] GitHub topics and description match the course identity.
-- [ ] The repo is ready for `academy-web` ingestion once the site content mechanism is decided.
-- [ ] Final commit: `docs: mark data structures course checklist complete`.
+- [x] Every public item has doc-comments with examples and complexity notes.
+- [x] Every chapter has the eleven required RFC-0001 §14 sections; visualization is either present or explicitly justified as not applicable.
+- [x] Every chapter has four to eight exercises across levels 1 to 4.
+- [x] Every level 1 to 3 exercise has a solution in `examples/soluciones/`.
+- [x] Every level 4 exercise has a tradeoff discussion.
+- [x] Every structure has unit tests, integration tests, doctests, and benchmarks where meaningful.
+- [x] `cargo fmt --check` passes.
+- [x] `cargo clippy --all-targets --all-features -- -D warnings` passes.
+- [x] `cargo test --all-targets` passes.
+- [x] `cargo test --doc` passes.
+- [x] Documentation builds or validates without broken links.
+- [x] README status table and ROADMAP match the actual repo state.
+- [x] GitHub topics and description match the course identity.
+- [x] The repo is ready for `academy-web` ingestion once the site content mechanism is decided.
+- [x] Final commit: `docs: mark data structures course checklist complete`.
 
 ## Execution Options
 
