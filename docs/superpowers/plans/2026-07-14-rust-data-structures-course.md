@@ -336,11 +336,11 @@ For each chapter, complete the following checklist before moving to the next str
 - Create: `examples/bloom_filter_advanced.rs`
 - Create: `examples/bloom_filter_real_case.rs`
 
-- [ ] Teach probabilistic membership, bit arrays, multiple hashes, false positives, no false negatives, sizing, and error probability.
-- [ ] Compare against hashmap, set, counting Bloom filter, and Cuckoo filter.
-- [ ] Include real cases: cache filtering, database reads, web crawlers.
-- [ ] Include tests for inserted values, definitely-missing behavior under controlled inputs, false-positive-rate measurement, and parameter validation.
-- [ ] Include benchmarks for insert and membership checks.
+- [x] Teach probabilistic membership, bit arrays, multiple hashes, false positives, no false negatives, sizing, and error probability.
+- [x] Compare against hashmap, set, counting Bloom filter, and Cuckoo filter.
+- [x] Include real cases: cache filtering, database reads, web crawlers.
+- [x] Include tests for inserted values, definitely-missing behavior under controlled inputs, false-positive-rate measurement, and parameter validation.
+- [x] Include benchmarks for insert and membership checks.
 
 ### Task 16: Skip List
 

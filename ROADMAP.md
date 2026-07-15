@@ -29,7 +29,7 @@ El checklist detallado vive en
 | 08 | Graph | benchmarked |
 | 09 | B-Tree | benchmarked |
 | 10 | HashMap | benchmarked |
-| 11 | Bloom Filter | planned |
+| 11 | Bloom Filter | benchmarked |
 | 12 | Skip List | planned |
 
 ## Alineacion RFC-0001
