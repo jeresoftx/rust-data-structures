@@ -387,6 +387,13 @@ For each chapter, complete the following checklist before moving to the next str
 - [x] The repo is ready for `academy-web` ingestion once the site content mechanism is decided.
 - [x] Final commit: `docs: mark data structures course checklist complete`.
 
+## Academy Web Ingestion Preparation
+
+- [x] Add a course manifest with stable chapter IDs, slugs, paths, status, examples, solutions, diagrams, tests, and benches.
+- [x] Add an ingestion contract that keeps this repo as the source of truth and leaves the `academy-web` mechanism undecided.
+- [x] Update README governance notes with the manifest and ingestion contract.
+- [x] Update ROADMAP with the prepared-but-not-activated ingestion state.
+
 ## Execution Options
 
 1. **Subagent-Driven:** dispatch a fresh worker per major task or per chapter, then review each result before continuing.

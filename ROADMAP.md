@@ -47,3 +47,15 @@ El checklist detallado vive en
   explicar una estructura.
 - Visualizaciones interactivas hasta que `academy-web` defina el mecanismo de
   ingestion de contenido y playgrounds.
+
+## Preparacion Para Academy Web
+
+La ingestion hacia `academy-web` queda preparada, pero no activada. El contrato
+preliminar vive en
+[`docs/academy-web-ingestion.md`](docs/academy-web-ingestion.md), y el inventario
+consumible por herramientas vive en
+[`docs/course-manifest.json`](docs/course-manifest.json).
+
+La decision pendiente no es si este curso puede alimentar al sitio, sino como lo
+hara: submodule, subtree, fetch desde GitHub, paquete versionado, generacion en
+CI u otro mecanismo definido por `academy-web`.

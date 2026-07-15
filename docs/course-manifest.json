@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "academy": "Jeresoft Academy",
+  "course": {
+    "id": "rust-data-structures",
+    "title": "Rust Data Structures",
+    "semester": 1,
+    "track": "camino troncal",
+    "language": "es",
+    "repository": "https://github.com/jeresoftx/rust-data-structures",
+    "license": {
+      "code": "MIT OR Apache-2.0",
+      "content": "CC BY-SA 4.0"
+    },
+    "status": "ready-for-site-ingestion",
+    "sourceOfTruth": [
+      "README.md",
+      "ROADMAP.md",
+      "docs/SUMMARY.md",
+      "docs/superpowers/plans/2026-07-14-rust-data-structures-course.md"
+    ]
+  },
+  "ingestion": {
+    "siteRepository": "academy-web",
+    "mechanism": "pending",
+    "contractDocument": "docs/academy-web-ingestion.md",
+    "canonicalChapterOrder": "docs/SUMMARY.md",
+    "chapterSlugPolicy": "NN-title",
+    "publishedByDefault": false
+  },
+  "chapters": [
+    {
+      "number": 1,
+      "id": "vector",
+      "slug": "01-vector",
+      "title": "Vector",
+      "module": "vector",
+      "status": "benchmarked",
+      "paths": {
+        "chapter": "docs/01-vector.md",
+        "code": "src/vector.rs",
+        "diagram": "diagrams/01-vector.mmd",
+        "tests": "tests/vector_test.rs",
+        "bench": "benches/vector_bench.rs",
+        "examples": {
+          "basic": "examples/vector_basic.rs",
+          "intermediate": "examples/vector_intermediate.rs",
+          "advanced": "examples/vector_advanced.rs",
+          "realCase": "examples/vector_real_case.rs"
+        },
+        "solutions": [
+          "examples/soluciones/vector_trace_growth.rs",
+          "examples/soluciones/vector_insert_sorted.rs",
+          "examples/soluciones/vector_retain_prefix.rs"
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "id": "linked-list",
+      "slug": "02-linked-list",
+      "title": "Linked List",
+      "module": "linked_list",
+      "status": "benchmarked",
+      "paths": {
+        "chapter": "docs/02-linked-list.md",
+        "code": "src/linked_list.rs",
+        "diagram": "diagrams/02-linked-list.mmd",
+        "tests": "tests/linked_list_test.rs",
+        "bench": "benches/linked_list_bench.rs",
+        "examples": {
+          "basic": "examples/linked_list_basic.rs",
+          "intermediate": "examples/linked_list_intermediate.rs",
+          "advanced": "examples/linked_list_advanced.rs",
+          "realCase": "examples/linked_list_real_case.rs"
+        },
+        "solutions": [
+          "examples/soluciones/linked_list_reverse_input.rs",
+          "examples/soluciones/linked_list_move_front_to_back.rs",
+          "examples/soluciones/linked_list_remove_every_other.rs"
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "id": "stack",
+      "slug": "03-stack",
+      "title": "Stack",
+      "module": "stack",
+      "status": "benchmarked",
+      "paths": {
+        "chapter": "docs/03-stack.md",
+        "code": "src/stack.rs",
+        "diagram": "diagrams/03-stack.mmd",
+        "tests": "tests/stack_test.rs",
+        "bench": "benches/stack_bench.rs",
+        "examples": {
+          "basic": "examples/stack_basic.rs",
+          "intermediate": "examples/stack_intermediate.rs",
+          "advanced": "examples/stack_advanced.rs",
+          "realCase": "examples/stack_real_case.rs"
+        },
+        "solutions": [
+          "examples/soluciones/stack_trace_operations.rs",
+          "examples/soluciones/stack_balanced_parentheses.rs",
+          "examples/soluciones/stack_undo_redo.rs"
+        ]
+      }
+    },
+    {
+      "number": 4,
+      "id": "queue",
+      "slug": "04-queue",
+      "title": "Queue",
+      "module": "queue",
+      "status": "benchmarked",
+      "paths": {
+        "chapter": "docs/04-queue.md",
+        "code": "src/queue.rs",
+        "diagram": "diagrams/04-queue.mmd",
+        "tests": "tests/queue_test.rs",
+        "bench": "benches/queue_bench.rs",
+        "examples": {
+          "basic": "examples/queue_basic.rs",
+          "intermediate": "examples/queue_intermediate.rs",
+          "advanced": "examples/queue_advanced.rs",
+          "realCase": "examples/queue_real_case.rs"
+        },
+        "solutions": [
+          "examples/soluciones/queue_trace_order.rs",
+          "examples/soluciones/queue_round_robin.rs",
+          "examples/soluciones/queue_filter_ready_jobs.rs"
+        ]
+      }
+    },
+    {
+      "number": 5,
+      "id": "deque",
+      "slug": "05-deque",
+      "title": "Deque",
+      "module": "deque",
+      "status": "benchmarked",
+      "paths": {
+        "chapter": "docs/05-deque.md",
+        "code": "src/deque.rs",
+        "diagram": "diagrams/05-deque.mmd",
+        "tests": "tests/deque_test.rs",
+        "bench": "benches/deque_bench.rs",
+        "examples": {
+          "basic": "examples/deque_basic.rs",
+          "intermediate": "examples/deque_intermediate.rs",
+          "advanced": "examples/deque_advanced.rs",
+          "realCase": "examples/deque_real_case.rs"
+        },
+        "solutions": [
+          "examples/soluciones/deque_trace_ends.rs",
+          "examples/soluciones/deque_sliding_window.rs",
+          "examples/soluciones/deque_browser_history.rs"
+        ]
+      }
+    },
+    {
+      "number": 6,
+      "id": "heap",
+      "slug": "06-heap",
+      "title": "Heap",
+      "module": "heap",
+      "status": "benchmarked",
+      "paths": {
+        "chapter": "docs/06-heap.md",
+        "code": "src/heap.rs",
+        "diagram": "diagrams/06-heap.mmd",
+        "tests": "tests/heap_test.rs",
+        "bench": "benches/heap_bench.rs",
+        "examples": {
+          "basic": "examples/heap_basic.rs",
+          "intermediate": "examples/heap_intermediate.rs",
+          "advanced": "examples/heap_advanced.rs",
+          "realCase": "examples/heap_real_case.rs"
+        },
+        "solutions": [
+          "examples/soluciones/heap_trace_pop_order.rs",
+          "examples/soluciones/heap_top_k.rs",
+          "examples/soluciones/heap_dijkstra_frontier.rs"
+        ]
+      }
+    },
+    {
+      "number": 7,
+      "id": "trie",
+      "slug": "07-trie",
+      "title": "Trie",
+      "module": "trie",
+      "status": "benchmarked",
+      "paths": {
+        "chapter": "docs/07-trie.md",
+        "code": "src/trie.rs",
+        "diagram": "diagrams/07-trie.mmd",
+        "tests": "tests/trie_test.rs",
+        "bench": "benches/trie_bench.rs",
+        "examples": {
+          "basic": "examples/trie_basic.rs",
+          "intermediate": "examples/trie_intermediate.rs",
+          "advanced": "examples/trie_advanced.rs",
+          "realCase": "examples/trie_real_case.rs"
+        },
+        "solutions": [
+          "examples/soluciones/trie_trace_prefixes.rs",
+          "examples/soluciones/trie_autocomplete.rs",
+          "examples/soluciones/trie_unicode_policy.rs"
+        ]
+      }
+    },
+    {
+      "number": 8,
+      "id": "graph",
+      "slug": "08-graph",
+      "title": "Graph",
+      "module": "graph",
+      "status": "benchmarked",
+      "paths": {
+        "chapter": "docs/08-graph.md",
+        "code": "src/graph.rs",
+        "diagram": "diagrams/08-graph.mmd",
+        "tests": "tests/graph_test.rs",
+        "bench": "benches/graph_bench.rs",
+        "examples": {
+          "basic": "examples/graph_basic.rs",
+          "intermediate": "examples/graph_intermediate.rs",
+          "advanced": "examples/graph_advanced.rs",
+          "realCase": "examples/graph_real_case.rs"
+        },
+        "solutions": [
+          "examples/soluciones/graph_dependency_edges.rs",
+          "examples/soluciones/graph_social_neighbors.rs",
+          "examples/soluciones/graph_route_matrix.rs"
+        ]
+      }
+    },
+    {
+      "number": 9,
+      "id": "btree",
+      "slug": "09-btree",
+      "title": "B-Tree",
+      "module": "btree",
+      "status": "benchmarked",
+      "paths": {
+        "chapter": "docs/09-btree.md",
+        "code": "src/btree.rs",
+        "diagram": "diagrams/09-btree.mmd",
+        "tests": "tests/btree_test.rs",
+        "bench": "benches/btree_bench.rs",
+        "examples": {
+          "basic": "examples/btree_basic.rs",
+          "intermediate": "examples/btree_intermediate.rs",
+          "advanced": "examples/btree_advanced.rs",
+          "realCase": "examples/btree_real_case.rs"
+        },
+        "solutions": [
+          "examples/soluciones/btree_trace_split.rs",
+          "examples/soluciones/btree_ordered_index.rs",
+          "examples/soluciones/btree_duplicate_policy.rs"
+        ]
+      }
+    },
+    {
+      "number": 10,
+      "id": "hashmap",
+      "slug": "10-hashmap",
+      "title": "HashMap",
+      "module": "hashmap",
+      "status": "benchmarked",
+      "paths": {
+        "chapter": "docs/10-hashmap.md",
+        "code": "src/hashmap.rs",
+        "diagram": "diagrams/10-hashmap.mmd",
+        "tests": "tests/hashmap_test.rs",
+        "bench": "benches/hashmap_bench.rs",
+        "examples": {
+          "basic": "examples/hashmap_basic.rs",
+          "intermediate": "examples/hashmap_intermediate.rs",
+          "advanced": "examples/hashmap_advanced.rs",
+          "realCase": "examples/hashmap_real_case.rs"
+        },
+        "solutions": [
+          "examples/soluciones/hashmap_count_words.rs",
+          "examples/soluciones/hashmap_collision_chain.rs",
+          "examples/soluciones/hashmap_cache_remove.rs"
+        ]
+      }
+    },
+    {
+      "number": 11,
+      "id": "bloom-filter",
+      "slug": "11-bloom-filter",
+      "title": "Bloom Filter",
+      "module": "bloom_filter",
+      "status": "benchmarked",
+      "paths": {
+        "chapter": "docs/11-bloom-filter.md",
+        "code": "src/bloom_filter.rs",
+        "diagram": "diagrams/11-bloom-filter.mmd",
+        "tests": "tests/bloom_filter_test.rs",
+        "bench": "benches/bloom_filter_bench.rs",
+        "examples": {
+          "basic": "examples/bloom_filter_basic.rs",
+          "intermediate": "examples/bloom_filter_intermediate.rs",
+          "advanced": "examples/bloom_filter_advanced.rs",
+          "realCase": "examples/bloom_filter_real_case.rs"
+        },
+        "solutions": [
+          "examples/soluciones/bloom_filter_cache_guard.rs",
+          "examples/soluciones/bloom_filter_false_positive_probe.rs",
+          "examples/soluciones/bloom_filter_size_estimate.rs"
+        ]
+      }
+    },
+    {
+      "number": 12,
+      "id": "skip-list",
+      "slug": "12-skip-list",
+      "title": "Skip List",
+      "module": "skip_list",
+      "status": "benchmarked",
+      "paths": {
+        "chapter": "docs/12-skip-list.md",
+        "code": "src/skip_list.rs",
+        "diagram": "diagrams/12-skip-list.mmd",
+        "tests": "tests/skip_list_test.rs",
+        "bench": "benches/skip_list_bench.rs",
+        "examples": {
+          "basic": "examples/skip_list_basic.rs",
+          "intermediate": "examples/skip_list_intermediate.rs",
+          "advanced": "examples/skip_list_advanced.rs",
+          "realCase": "examples/skip_list_real_case.rs"
+        },
+        "solutions": [
+          "examples/soluciones/skip_list_trace_levels.rs",
+          "examples/soluciones/skip_list_ordered_index.rs",
+          "examples/soluciones/skip_list_expiring_window.rs"
+        ]
+      }
+    }
+  ]
+}

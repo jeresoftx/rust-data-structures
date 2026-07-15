@@ -104,6 +104,10 @@ cargo bench
 - `ROADMAP.md` registra el avance del curso sin convertirlo en una fecha limite.
 - `docs/superpowers/plans/2026-07-14-rust-data-structures-course.md` contiene
   el checklist de implementacion inicial.
+- `docs/course-manifest.json` contiene el inventario estable para una futura
+  ingestion desde `academy-web`.
+- `docs/academy-web-ingestion.md` documenta el contrato preparatorio de
+  ingestion sin fijar todavia el mecanismo tecnico del sitio.
 - `LICENSE.md` resume la doble licencia: codigo bajo `MIT OR Apache-2.0`;
   contenido educativo bajo `CC BY-SA 4.0`.
 
