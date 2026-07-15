@@ -109,6 +109,18 @@ path = "examples/soluciones/graph_social_neighbors.rs"
 name = "solution_graph_route_matrix"
 path = "examples/soluciones/graph_route_matrix.rs"
 
+[[example]]
+name = "solution_btree_trace_split"
+path = "examples/soluciones/btree_trace_split.rs"
+
+[[example]]
+name = "solution_btree_ordered_index"
+path = "examples/soluciones/btree_ordered_index.rs"
+
+[[example]]
+name = "solution_btree_duplicate_policy"
+path = "examples/soluciones/btree_duplicate_policy.rs"
+
 [[bench]]
 name = "vector_bench"
 path = "benches/vector_bench.rs"
@@ -147,4 +159,9 @@ harness = false
 [[bench]]
 name = "graph_bench"
 path = "benches/graph_bench.rs"
+harness = false
+
+[[bench]]
+name = "btree_bench"
+path = "benches/btree_bench.rs"
 harness = false

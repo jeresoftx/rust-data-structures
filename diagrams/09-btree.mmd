@@ -1,0 +1,26 @@
+flowchart TB
+    title["B-tree: claves ordenadas y split"]
+
+    subgraph before["Antes: raiz llena (t = 2, max = 3 claves)"]
+        root_before["[10 | 20 | 30]"]
+    end
+
+    insert["insert(40)<br/>la raiz llena se divide"]
+
+    subgraph after["Despues del split"]
+        root_after["[20]"]
+        left["[10]"]
+        right["[30 | 40]"]
+        root_after --> left
+        root_after --> right
+    end
+
+    before --> insert --> after
+
+    search["contains(30)<br/>compara en raiz y baja a un hijo"]
+    iter["iter()<br/>hijo izquierdo, clave raiz, hijo derecho"]
+    locality["Nodo multiway<br/>varias claves por pagina/cache line"]
+
+    root_after --> search
+    root_after --> iter
+    root_after --> locality
