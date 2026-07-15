@@ -1,0 +1,32 @@
+flowchart TB
+    title["HashMap: hashing, buckets y colisiones"]
+
+    key["clave: course"]
+    hash["hash(clave)"]
+    index["bucket = hash % capacity"]
+
+    key --> hash --> index
+
+    subgraph buckets["Buckets con encadenamiento separado"]
+        b0["0: []"]
+        b1["1: [(language, rust)]"]
+        b2["2: [(course, data-structures) -> (cache, hit)]"]
+        b3["3: []"]
+    end
+
+    index --> b2
+
+    collision["Colision<br/>dos claves caen en el mismo bucket"]
+    load["Factor de carga<br/>len / buckets"]
+    resize["Resize<br/>crear mas buckets y rehashear"]
+
+    b2 --> collision
+    buckets --> load --> resize --> buckets
+
+    lookup["lookup<br/>hash + scan del bucket"]
+    remove["remove<br/>buscar en bucket y extraer entrada"]
+    iter["iter<br/>recorrer buckets y entradas"]
+
+    buckets --> lookup
+    buckets --> remove
+    buckets --> iter

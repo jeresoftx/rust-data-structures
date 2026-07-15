@@ -121,6 +121,18 @@ path = "examples/soluciones/btree_ordered_index.rs"
 name = "solution_btree_duplicate_policy"
 path = "examples/soluciones/btree_duplicate_policy.rs"
 
+[[example]]
+name = "solution_hashmap_count_words"
+path = "examples/soluciones/hashmap_count_words.rs"
+
+[[example]]
+name = "solution_hashmap_collision_chain"
+path = "examples/soluciones/hashmap_collision_chain.rs"
+
+[[example]]
+name = "solution_hashmap_cache_remove"
+path = "examples/soluciones/hashmap_cache_remove.rs"
+
 [[bench]]
 name = "vector_bench"
 path = "benches/vector_bench.rs"
@@ -164,4 +176,9 @@ harness = false
 [[bench]]
 name = "btree_bench"
 path = "benches/btree_bench.rs"
+harness = false
+
+[[bench]]
+name = "hashmap_bench"
+path = "benches/hashmap_bench.rs"
 harness = false
