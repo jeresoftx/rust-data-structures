@@ -8,6 +8,9 @@
 /// Esta implementacion usa solo Rust seguro. Cada nodo posee su sucesor con
 /// `Box<Node<T>>`, y la lista posee el primer nodo mediante `head`.
 ///
+/// Complejidad: operaciones al frente son O(1); operaciones al fondo o por
+/// indice recorren enlaces y cuestan O(n).
+///
 /// ```
 /// use rust_data_structures::linked_list::LinkedList;
 ///
@@ -32,6 +35,8 @@ struct Node<T> {
 }
 
 /// Iterador inmutable sobre una [`LinkedList`].
+///
+/// Complejidad: `next` cuesta O(1); consumirlo completo cuesta O(n).
 ///
 /// ```
 /// use rust_data_structures::linked_list::LinkedList;

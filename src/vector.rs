@@ -10,6 +10,9 @@
 /// capitulo explica que una implementacion industrial usa memoria sin inicializar
 /// y requiere `unsafe` cuidadosamente justificado.
 ///
+/// Complejidad: acceso por indice es O(1); insercion/remocion internas pueden
+/// costar O(n), y `push` es O(1) amortizado.
+///
 /// ```
 /// use rust_data_structures::vector::Vector;
 ///
@@ -28,6 +31,8 @@ pub struct Vector<T> {
 }
 
 /// Error al insertar en una posicion que no existe.
+///
+/// Complejidad: construir o comparar este error cuesta O(1).
 ///
 /// ```
 /// use rust_data_structures::vector::{InsertError, Vector};

@@ -10,6 +10,8 @@ use crate::vector::Vector;
 /// El tope de la pila vive al final del vector. Esa decision hace que `push`,
 /// `pop` y `peek` sean operaciones constantes o amortizadas constantes.
 ///
+/// Complejidad: `push` es O(1) amortizado; `pop` y `peek` son O(1).
+///
 /// ```
 /// use rust_data_structures::stack::Stack;
 ///

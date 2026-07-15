@@ -8,6 +8,8 @@
 /// El frente del deque se guarda en `head`; los elementos viven en orden logico
 /// aunque puedan estar envueltos fisicamente.
 ///
+/// Complejidad: operaciones en ambos extremos son O(1) amortizadas.
+///
 /// ```
 /// use rust_data_structures::deque::Deque;
 ///
@@ -26,6 +28,8 @@ pub struct Deque<T> {
 }
 
 /// Iterador inmutable sobre un [`Deque`], desde el frente hacia atras.
+///
+/// Complejidad: `next` cuesta O(1); consumirlo completo cuesta O(n).
 ///
 /// ```
 /// use rust_data_structures::deque::Deque;

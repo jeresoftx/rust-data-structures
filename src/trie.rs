@@ -10,6 +10,9 @@ use std::collections::BTreeMap;
 /// La estructura no normaliza Unicode: dos representaciones canonicas distintas
 /// se tratan como claves distintas.
 ///
+/// Complejidad: insertar, buscar y remover dependen de la longitud en `char`
+/// de la palabra y del costo de navegar hijos ordenados.
+///
 /// ```
 /// use rust_data_structures::trie::Trie;
 ///
@@ -68,6 +71,13 @@ impl Trie {
     /// Indica si el trie no contiene palabras.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::trie::Trie;
+    ///
+    /// let trie = Trie::new();
+    /// assert!(trie.is_empty());
+    /// ```
     #[must_use]
     pub fn is_empty(&self) -> bool {
         self.len == 0
@@ -207,6 +217,14 @@ impl Trie {
     /// Cuenta nodos de representacion, incluyendo la raiz.
     ///
     /// Complejidad: O(n).
+    ///
+    /// ```
+    /// use rust_data_structures::trie::Trie;
+    ///
+    /// let mut trie = Trie::new();
+    /// trie.insert("a");
+    /// assert_eq!(trie.node_count(), 2);
+    /// ```
     #[must_use]
     pub fn node_count(&self) -> usize {
         count_nodes(&self.root)

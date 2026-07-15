@@ -7,6 +7,17 @@ use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
 
 /// Error al crear un filtro de Bloom.
+///
+/// Complejidad: construir o comparar este error cuesta O(1).
+///
+/// ```
+/// use rust_data_structures::bloom_filter::{BloomFilter, BloomFilterError};
+///
+/// assert!(matches!(
+///     BloomFilter::new(0, 3),
+///     Err(BloomFilterError::InvalidBitCount)
+/// ));
+/// ```
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum BloomFilterError {
     /// El numero de bits debe ser mayor que cero.
@@ -20,6 +31,9 @@ pub enum BloomFilterError {
 }
 
 /// Filtro de Bloom para pertenencia probabilistica.
+///
+/// Complejidad: insertar y consultar cuesta O(k), donde `k` es el numero de
+/// hashes configurados.
 ///
 /// ```
 /// use rust_data_structures::bloom_filter::BloomFilter;
@@ -38,6 +52,16 @@ pub struct BloomFilter {
 
 impl BloomFilter {
     /// Crea un filtro con numero de bits y hashes especifico.
+    ///
+    /// Complejidad: O(m), donde `m` es el numero de bits inicializados.
+    ///
+    /// ```
+    /// use rust_data_structures::bloom_filter::BloomFilter;
+    ///
+    /// let filter = BloomFilter::new(64, 3).unwrap();
+    /// assert_eq!(filter.bit_count(), 64);
+    /// assert_eq!(filter.hash_count(), 3);
+    /// ```
     pub fn new(bit_count: usize, hash_count: usize) -> Result<Self, BloomFilterError> {
         if bit_count == 0 {
             return Err(BloomFilterError::InvalidBitCount);
@@ -54,6 +78,16 @@ impl BloomFilter {
     }
 
     /// Crea un filtro a partir de elementos esperados y tasa objetivo.
+    ///
+    /// Complejidad: O(m), donde `m` es el numero de bits calculados.
+    ///
+    /// ```
+    /// use rust_data_structures::bloom_filter::BloomFilter;
+    ///
+    /// let filter = BloomFilter::with_estimated_items(100, 0.01).unwrap();
+    /// assert!(filter.bit_count() > 0);
+    /// assert!(filter.hash_count() > 0);
+    /// ```
     pub fn with_estimated_items(
         expected_items: usize,
         false_positive_rate: f64,
@@ -76,6 +110,16 @@ impl BloomFilter {
     /// Inserta un valor.
     ///
     /// Complejidad: O(k), donde `k` es el numero de hashes.
+    ///
+    /// ```
+    /// use rust_data_structures::bloom_filter::BloomFilter;
+    ///
+    /// let mut filter = BloomFilter::new(64, 3).unwrap();
+    /// filter.insert(&"key");
+    ///
+    /// assert!(filter.might_contain(&"key"));
+    /// assert_eq!(filter.inserted_count(), 1);
+    /// ```
     pub fn insert<T: Hash>(&mut self, value: &T) {
         let indexes = self.indexes(value);
         for index in indexes {
@@ -89,6 +133,14 @@ impl BloomFilter {
     /// Devuelve `true` si el valor podria estar presente.
     ///
     /// Complejidad: O(k).
+    ///
+    /// ```
+    /// use rust_data_structures::bloom_filter::BloomFilter;
+    ///
+    /// let filter = BloomFilter::new(64, 3).unwrap();
+    ///
+    /// assert!(!filter.might_contain(&"missing"));
+    /// ```
     #[must_use]
     pub fn might_contain<T: Hash>(&self, value: &T) -> bool {
         self.indexes(value)
@@ -97,36 +149,96 @@ impl BloomFilter {
     }
 
     /// Limpia todos los bits y reinicia el contador educativo.
+    ///
+    /// Complejidad: O(m), donde `m` es el numero de bits.
+    ///
+    /// ```
+    /// use rust_data_structures::bloom_filter::BloomFilter;
+    ///
+    /// let mut filter = BloomFilter::new(64, 3).unwrap();
+    /// filter.insert(&"key");
+    /// filter.clear();
+    ///
+    /// assert_eq!(filter.inserted_count(), 0);
+    /// assert_eq!(filter.set_bit_count(), 0);
+    /// ```
     pub fn clear(&mut self) {
         self.bits.fill(false);
         self.inserted_count = 0;
     }
 
     /// Devuelve el numero de bits.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::bloom_filter::BloomFilter;
+    ///
+    /// let filter = BloomFilter::new(32, 2).unwrap();
+    /// assert_eq!(filter.bit_count(), 32);
+    /// ```
     #[must_use]
     pub fn bit_count(&self) -> usize {
         self.bits.len()
     }
 
     /// Devuelve el numero de hashes simulados.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::bloom_filter::BloomFilter;
+    ///
+    /// let filter = BloomFilter::new(32, 2).unwrap();
+    /// assert_eq!(filter.hash_count(), 2);
+    /// ```
     #[must_use]
     pub fn hash_count(&self) -> usize {
         self.hash_count
     }
 
     /// Devuelve cuantas inserciones se han realizado.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::bloom_filter::BloomFilter;
+    ///
+    /// let mut filter = BloomFilter::new(32, 2).unwrap();
+    /// filter.insert(&"a");
+    /// assert_eq!(filter.inserted_count(), 1);
+    /// ```
     #[must_use]
     pub fn inserted_count(&self) -> usize {
         self.inserted_count
     }
 
     /// Devuelve cuantos bits estan encendidos.
+    ///
+    /// Complejidad: O(m), donde `m` es el numero de bits.
+    ///
+    /// ```
+    /// use rust_data_structures::bloom_filter::BloomFilter;
+    ///
+    /// let mut filter = BloomFilter::new(32, 2).unwrap();
+    /// filter.insert(&"a");
+    /// assert!(filter.set_bit_count() > 0);
+    /// ```
     #[must_use]
     pub fn set_bit_count(&self) -> usize {
         self.bits.iter().filter(|bit| **bit).count()
     }
 
     /// Estima la tasa de falso positivo con el estado actual.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::bloom_filter::BloomFilter;
+    ///
+    /// let filter = BloomFilter::new(32, 2).unwrap();
+    /// assert_eq!(filter.estimated_false_positive_rate(), 0.0);
+    /// ```
     #[must_use]
     pub fn estimated_false_positive_rate(&self) -> f64 {
         if self.inserted_count == 0 {

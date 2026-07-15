@@ -7,6 +7,9 @@
 ///
 /// La raiz contiene el valor de mayor prioridad segun [`Ord`].
 ///
+/// Complejidad: insercion y remocion cuestan O(log n); leer la raiz cuesta
+/// O(1).
+///
 /// ```
 /// use rust_data_structures::heap::Heap;
 ///
@@ -25,6 +28,9 @@ pub struct Heap<T> {
 /// Monticulo binario minimo.
 ///
 /// La raiz contiene el valor de menor prioridad segun [`Ord`].
+///
+/// Complejidad: insercion y remocion cuestan O(log n); leer la raiz cuesta
+/// O(1).
 ///
 /// ```
 /// use rust_data_structures::heap::MinHeap;
@@ -93,6 +99,14 @@ impl<T: Ord> Heap<T> {
     /// Devuelve el numero de elementos.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::Heap;
+    ///
+    /// let mut heap = Heap::new();
+    /// heap.push(1);
+    /// assert_eq!(heap.len(), 1);
+    /// ```
     #[must_use]
     pub fn len(&self) -> usize {
         self.items.len()
@@ -101,6 +115,13 @@ impl<T: Ord> Heap<T> {
     /// Devuelve la capacidad reservada.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::Heap;
+    ///
+    /// let heap = Heap::<i32>::with_capacity(4);
+    /// assert!(heap.capacity() >= 4);
+    /// ```
     #[must_use]
     pub fn capacity(&self) -> usize {
         self.items.capacity()
@@ -109,6 +130,13 @@ impl<T: Ord> Heap<T> {
     /// Indica si el heap esta vacio.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::Heap;
+    ///
+    /// let heap = Heap::<i32>::new();
+    /// assert!(heap.is_empty());
+    /// ```
     #[must_use]
     pub fn is_empty(&self) -> bool {
         self.items.is_empty()
@@ -157,6 +185,13 @@ impl<T: Ord> Heap<T> {
     /// Lee el maximo sin removerlo.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::Heap;
+    ///
+    /// let heap = Heap::from_vec(vec![1, 3, 2]);
+    /// assert_eq!(heap.peek(), Some(&3));
+    /// ```
     #[must_use]
     pub fn peek(&self) -> Option<&T> {
         self.items.first()
@@ -165,6 +200,16 @@ impl<T: Ord> Heap<T> {
     /// Remueve todos los elementos sin liberar capacidad.
     ///
     /// Complejidad: O(n).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::Heap;
+    ///
+    /// let mut heap = Heap::with_capacity(4);
+    /// heap.push(1);
+    /// heap.clear();
+    /// assert!(heap.is_empty());
+    /// assert!(heap.capacity() >= 4);
+    /// ```
     pub fn clear(&mut self) {
         self.items.clear();
     }
@@ -175,6 +220,13 @@ impl<T: Ord> Heap<T> {
     /// interna del heap.
     ///
     /// Complejidad: O(1) para crear el iterador y O(n) para consumirlo completo.
+    ///
+    /// ```
+    /// use rust_data_structures::heap::Heap;
+    ///
+    /// let heap = Heap::from_vec(vec![1, 2, 3]);
+    /// assert_eq!(heap.iter_level_order().count(), 3);
+    /// ```
     pub fn iter_level_order(&self) -> std::slice::Iter<'_, T> {
         self.items.iter()
     }
@@ -236,6 +288,13 @@ impl<T: Ord> MinHeap<T> {
     /// Crea un heap minimo vacio.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::MinHeap;
+    ///
+    /// let heap = MinHeap::<i32>::new();
+    /// assert!(heap.is_empty());
+    /// ```
     #[must_use]
     pub fn new() -> Self {
         Self { items: Vec::new() }
@@ -244,6 +303,13 @@ impl<T: Ord> MinHeap<T> {
     /// Crea un heap minimo vacio con capacidad reservada.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::MinHeap;
+    ///
+    /// let heap = MinHeap::<i32>::with_capacity(8);
+    /// assert!(heap.capacity() >= 8);
+    /// ```
     #[must_use]
     pub fn with_capacity(capacity: usize) -> Self {
         Self {
@@ -254,6 +320,13 @@ impl<T: Ord> MinHeap<T> {
     /// Construye un heap minimo desde valores existentes usando heapify.
     ///
     /// Complejidad: O(n).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::MinHeap;
+    ///
+    /// let heap = MinHeap::from_vec(vec![3, 1, 2]);
+    /// assert_eq!(heap.peek(), Some(&1));
+    /// ```
     #[must_use]
     pub fn from_vec(items: Vec<T>) -> Self {
         let mut heap = Self { items };
@@ -264,6 +337,14 @@ impl<T: Ord> MinHeap<T> {
     /// Devuelve el numero de elementos.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::MinHeap;
+    ///
+    /// let mut heap = MinHeap::new();
+    /// heap.push(1);
+    /// assert_eq!(heap.len(), 1);
+    /// ```
     #[must_use]
     pub fn len(&self) -> usize {
         self.items.len()
@@ -272,6 +353,13 @@ impl<T: Ord> MinHeap<T> {
     /// Devuelve la capacidad reservada.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::MinHeap;
+    ///
+    /// let heap = MinHeap::<i32>::with_capacity(4);
+    /// assert!(heap.capacity() >= 4);
+    /// ```
     #[must_use]
     pub fn capacity(&self) -> usize {
         self.items.capacity()
@@ -280,6 +368,13 @@ impl<T: Ord> MinHeap<T> {
     /// Indica si el heap esta vacio.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::MinHeap;
+    ///
+    /// let heap = MinHeap::<i32>::new();
+    /// assert!(heap.is_empty());
+    /// ```
     #[must_use]
     pub fn is_empty(&self) -> bool {
         self.items.is_empty()
@@ -288,6 +383,15 @@ impl<T: Ord> MinHeap<T> {
     /// Inserta un valor y restaura la propiedad de heap minimo.
     ///
     /// Complejidad: O(log n).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::MinHeap;
+    ///
+    /// let mut heap = MinHeap::new();
+    /// heap.push(4);
+    /// heap.push(1);
+    /// assert_eq!(heap.peek(), Some(&1));
+    /// ```
     pub fn push(&mut self, value: T) {
         self.items.push(value);
         self.sift_up(self.len() - 1);
@@ -296,6 +400,13 @@ impl<T: Ord> MinHeap<T> {
     /// Remueve y devuelve el minimo, si existe.
     ///
     /// Complejidad: O(log n).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::MinHeap;
+    ///
+    /// let mut heap = MinHeap::from_vec(vec![3, 1, 2]);
+    /// assert_eq!(heap.pop(), Some(1));
+    /// ```
     pub fn pop(&mut self) -> Option<T> {
         let last = self.items.pop()?;
 
@@ -311,6 +422,13 @@ impl<T: Ord> MinHeap<T> {
     /// Lee el minimo sin removerlo.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::MinHeap;
+    ///
+    /// let heap = MinHeap::from_vec(vec![3, 1, 2]);
+    /// assert_eq!(heap.peek(), Some(&1));
+    /// ```
     #[must_use]
     pub fn peek(&self) -> Option<&T> {
         self.items.first()
@@ -319,6 +437,16 @@ impl<T: Ord> MinHeap<T> {
     /// Remueve todos los elementos sin liberar capacidad.
     ///
     /// Complejidad: O(n).
+    ///
+    /// ```
+    /// use rust_data_structures::heap::MinHeap;
+    ///
+    /// let mut heap = MinHeap::with_capacity(4);
+    /// heap.push(1);
+    /// heap.clear();
+    /// assert!(heap.is_empty());
+    /// assert!(heap.capacity() >= 4);
+    /// ```
     pub fn clear(&mut self) {
         self.items.clear();
     }
@@ -326,6 +454,13 @@ impl<T: Ord> MinHeap<T> {
     /// Itera en orden de arreglo, nivel por nivel.
     ///
     /// Complejidad: O(1) para crear el iterador y O(n) para consumirlo completo.
+    ///
+    /// ```
+    /// use rust_data_structures::heap::MinHeap;
+    ///
+    /// let heap = MinHeap::from_vec(vec![3, 1, 2]);
+    /// assert_eq!(heap.iter_level_order().count(), 3);
+    /// ```
     pub fn iter_level_order(&self) -> std::slice::Iter<'_, T> {
         self.items.iter()
     }

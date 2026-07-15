@@ -316,6 +316,14 @@ un puntero crudo exigiría `unsafe`, y una solución con `Rc<RefCell<_>>` cambia
 modelo de ownership. Un `VecDeque` puede ser la estructura práctica correcta si
 solo necesitas una cola eficiente en ambos extremos.
 
+## Conexiones con cursos futuros
+
+En `rust-algorithms`, las listas enlazadas reaparecen como representación mental
+para recorridos, ventanas y técnicas de punteros. La lección que se arrastra no
+es que una lista enlazada sea "mejor" que un vector, sino que la forma de enlazar
+nodos cambia las operaciones disponibles, la localidad de memoria y las
+invariantes que un algoritmo puede asumir.
+
 ## Referencias
 
 - Donald Knuth, *The Art of Computer Programming*, Vol. 1, secciones sobre

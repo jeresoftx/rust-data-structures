@@ -8,6 +8,9 @@
 /// El frente de la cola se guarda en `head`; los elementos viven en orden
 /// logico aunque puedan estar envueltos fisicamente dentro del arreglo.
 ///
+/// Complejidad: `enqueue` es O(1) amortizado; `dequeue`, `front` y `back` son
+/// O(1).
+///
 /// ```
 /// use rust_data_structures::queue::Queue;
 ///
@@ -27,6 +30,8 @@ pub struct Queue<T> {
 }
 
 /// Iterador inmutable sobre una [`Queue`], desde el frente hacia atras.
+///
+/// Complejidad: `next` cuesta O(1); consumirlo completo cuesta O(n).
 ///
 /// ```
 /// use rust_data_structures::queue::Queue;

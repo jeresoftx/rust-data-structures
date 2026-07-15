@@ -8,6 +8,17 @@ use std::cmp::Ordering;
 const DEFAULT_MIN_DEGREE: usize = 2;
 
 /// Error al crear o configurar un B-tree.
+///
+/// Complejidad: construir o comparar este error cuesta O(1).
+///
+/// ```
+/// use rust_data_structures::btree::{BTree, BTreeError};
+///
+/// assert!(matches!(
+///     BTree::<i32>::with_min_degree(1),
+///     Err(BTreeError::InvalidMinDegree)
+/// ));
+/// ```
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum BTreeError {
     /// Un B-tree necesita grado minimo de al menos 2.
@@ -18,6 +29,9 @@ pub enum BTreeError {
 ///
 /// Este tipo modela un conjunto: insertar una clave duplicada devuelve `false`
 /// y no aumenta `len`.
+///
+/// Complejidad: busqueda, insercion e iteracion siguen los costos indicados en
+/// cada metodo publico.
 ///
 /// ```
 /// use rust_data_structures::btree::BTree;
@@ -45,6 +59,19 @@ struct Node<T> {
 }
 
 /// Iterador in-order sobre las claves del B-tree.
+///
+/// Complejidad: `next` cuesta O(1); construirlo desde [`BTree::iter`] cuesta
+/// O(n).
+///
+/// ```
+/// use rust_data_structures::btree::BTree;
+///
+/// let mut tree = BTree::new();
+/// tree.insert(2);
+/// tree.insert(1);
+///
+/// assert_eq!(tree.iter().copied().collect::<Vec<_>>(), vec![1, 2]);
+/// ```
 #[derive(Debug, Clone)]
 pub struct Iter<'a, T> {
     items: Vec<&'a T>,
@@ -55,6 +82,14 @@ impl<T: Ord> BTree<T> {
     /// Crea un B-tree con grado minimo 2.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::btree::BTree;
+    ///
+    /// let tree = BTree::<i32>::new();
+    /// assert!(tree.is_empty());
+    /// assert_eq!(tree.min_degree(), 2);
+    /// ```
     #[must_use]
     pub fn new() -> Self {
         Self {
@@ -70,6 +105,13 @@ impl<T: Ord> BTree<T> {
     /// `2t - 1` claves antes de dividirse.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::btree::BTree;
+    ///
+    /// let tree = BTree::<i32>::with_min_degree(3).unwrap();
+    /// assert_eq!(tree.min_degree(), 3);
+    /// ```
     pub fn with_min_degree(min_degree: usize) -> Result<Self, BTreeError> {
         if min_degree < 2 {
             return Err(BTreeError::InvalidMinDegree);
@@ -83,24 +125,61 @@ impl<T: Ord> BTree<T> {
     }
 
     /// Devuelve el numero de claves.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::btree::BTree;
+    ///
+    /// let mut tree = BTree::new();
+    /// tree.insert("a");
+    /// assert_eq!(tree.len(), 1);
+    /// ```
     #[must_use]
     pub fn len(&self) -> usize {
         self.len
     }
 
     /// Indica si el arbol esta vacio.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::btree::BTree;
+    ///
+    /// let tree = BTree::<i32>::new();
+    /// assert!(tree.is_empty());
+    /// ```
     #[must_use]
     pub fn is_empty(&self) -> bool {
         self.len == 0
     }
 
     /// Devuelve el grado minimo.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::btree::BTree;
+    ///
+    /// let tree = BTree::<i32>::with_min_degree(4).unwrap();
+    /// assert_eq!(tree.min_degree(), 4);
+    /// ```
     #[must_use]
     pub fn min_degree(&self) -> usize {
         self.min_degree
     }
 
     /// Devuelve la altura medida en niveles de nodos.
+    ///
+    /// Complejidad: O(h), donde `h` es la altura del arbol.
+    ///
+    /// ```
+    /// use rust_data_structures::btree::BTree;
+    ///
+    /// let tree = BTree::<i32>::new();
+    /// assert_eq!(tree.height(), 1);
+    /// ```
     #[must_use]
     pub fn height(&self) -> usize {
         self.root.height()
@@ -109,6 +188,16 @@ impl<T: Ord> BTree<T> {
     /// Devuelve cuantas claves tiene la raiz.
     ///
     /// Este metodo existe para pruebas y visualizaciones educativas de split.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::btree::BTree;
+    ///
+    /// let mut tree = BTree::new();
+    /// tree.insert(10);
+    /// assert_eq!(tree.root_key_count(), 1);
+    /// ```
     #[must_use]
     pub fn root_key_count(&self) -> usize {
         self.root.keys.len()
@@ -118,6 +207,14 @@ impl<T: Ord> BTree<T> {
     ///
     /// Complejidad: O(log n) en altura del B-tree, con busqueda binaria dentro
     /// de cada nodo.
+    ///
+    /// ```
+    /// use rust_data_structures::btree::BTree;
+    ///
+    /// let mut tree = BTree::new();
+    /// tree.insert("clave");
+    /// assert!(tree.contains(&"clave"));
+    /// ```
     #[must_use]
     pub fn contains(&self, key: &T) -> bool {
         self.root.contains(key)
@@ -126,6 +223,14 @@ impl<T: Ord> BTree<T> {
     /// Inserta una clave y devuelve `true` si era nueva.
     ///
     /// Complejidad: O(log n) en altura del B-tree.
+    ///
+    /// ```
+    /// use rust_data_structures::btree::BTree;
+    ///
+    /// let mut tree = BTree::new();
+    /// assert!(tree.insert(7));
+    /// assert!(!tree.insert(7));
+    /// ```
     pub fn insert(&mut self, key: T) -> bool {
         if self.contains(&key) {
             return false;
@@ -150,6 +255,17 @@ impl<T: Ord> BTree<T> {
     ///
     /// El iterador materializa referencias para mantener el codigo del
     /// capitulo enfocado en la estructura, no en una pila manual de recorrido.
+    ///
+    /// Complejidad: O(n) para construir el iterador y O(1) por avance.
+    ///
+    /// ```
+    /// use rust_data_structures::btree::BTree;
+    ///
+    /// let mut tree = BTree::new();
+    /// tree.insert(2);
+    /// tree.insert(1);
+    /// assert_eq!(tree.iter().copied().collect::<Vec<_>>(), vec![1, 2]);
+    /// ```
     #[must_use]
     pub fn iter(&self) -> Iter<'_, T> {
         let mut items = Vec::with_capacity(self.len);

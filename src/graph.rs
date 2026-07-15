@@ -7,9 +7,27 @@
 use std::collections::BTreeMap;
 
 /// Peso entero usado por las aristas de este capitulo.
+///
+/// Complejidad: copiar un peso cuesta O(1).
+///
+/// ```
+/// use rust_data_structures::graph::Weight;
+///
+/// let weight: Weight = 7;
+/// assert_eq!(weight + 1, 8);
+/// ```
 pub type Weight = i32;
 
 /// Error al operar sobre grafos.
+///
+/// Complejidad: construir o comparar este error cuesta O(1).
+///
+/// ```
+/// use rust_data_structures::graph::{Graph, GraphError};
+///
+/// let mut graph = Graph::new_directed();
+/// assert_eq!(graph.add_edge("a", "b", 1), Err(GraphError::MissingNode));
+/// ```
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum GraphError {
     /// La operacion referencia un nodo que no existe.
@@ -17,6 +35,15 @@ pub enum GraphError {
 }
 
 /// Arista ponderada en forma de lista de aristas.
+///
+/// Complejidad: crear una arista cuesta O(1) mas el costo de mover sus nodos.
+///
+/// ```
+/// use rust_data_structures::graph::Edge;
+///
+/// let edge = Edge { from: "a", to: "b", weight: 3 };
+/// assert_eq!(edge.weight, 3);
+/// ```
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Edge<T> {
     /// Nodo origen.
@@ -28,6 +55,9 @@ pub struct Edge<T> {
 }
 
 /// Grafo ponderado respaldado por lista de adyacencia.
+///
+/// Complejidad: los costos dependen de busquedas en `BTreeMap`; los metodos
+/// publicos documentan el costo especifico.
 ///
 /// ```
 /// use rust_data_structures::graph::Graph;
@@ -48,6 +78,9 @@ pub struct Graph<T> {
 }
 
 /// Grafo ponderado respaldado por matriz de adyacencia.
+///
+/// Complejidad: consultar aristas cuesta O(n) en esta version educativa porque
+/// primero localiza indices por busqueda lineal.
 ///
 /// ```
 /// use rust_data_structures::graph::AdjacencyMatrix;
@@ -71,6 +104,13 @@ impl<T: Ord + Clone> Graph<T> {
     /// Crea un grafo dirigido.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let graph = Graph::<&str>::new_directed();
+    /// assert!(graph.is_directed());
+    /// ```
     #[must_use]
     pub fn new_directed() -> Self {
         Self {
@@ -83,6 +123,13 @@ impl<T: Ord + Clone> Graph<T> {
     /// Crea un grafo no dirigido.
     ///
     /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let graph = Graph::<&str>::new_undirected();
+    /// assert!(!graph.is_directed());
+    /// ```
     #[must_use]
     pub fn new_undirected() -> Self {
         Self {
@@ -93,6 +140,14 @@ impl<T: Ord + Clone> Graph<T> {
     }
 
     /// Indica si el grafo es dirigido.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// assert!(Graph::<i32>::new_directed().is_directed());
+    /// ```
     #[must_use]
     pub fn is_directed(&self) -> bool {
         self.directed
@@ -101,6 +156,14 @@ impl<T: Ord + Clone> Graph<T> {
     /// Agrega un nodo y devuelve `true` si era nuevo.
     ///
     /// Complejidad: O(log n).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let mut graph = Graph::new_directed();
+    /// assert!(graph.add_node("a"));
+    /// assert!(!graph.add_node("a"));
+    /// ```
     pub fn add_node(&mut self, node: T) -> bool {
         if self.adjacency.contains_key(&node) {
             return false;
@@ -113,18 +176,49 @@ impl<T: Ord + Clone> Graph<T> {
     /// Indica si un nodo existe.
     ///
     /// Complejidad: O(log n).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let mut graph = Graph::new_directed();
+    /// graph.add_node("a");
+    /// assert!(graph.contains_node("a"));
+    /// assert!(!graph.contains_node("b"));
+    /// ```
     #[must_use]
     pub fn contains_node(&self, node: T) -> bool {
         self.adjacency.contains_key(&node)
     }
 
     /// Devuelve el numero de nodos.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let mut graph = Graph::new_directed();
+    /// graph.add_node("a");
+    /// assert_eq!(graph.node_count(), 1);
+    /// ```
     #[must_use]
     pub fn node_count(&self) -> usize {
         self.adjacency.len()
     }
 
     /// Devuelve el numero logico de aristas.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let mut graph = Graph::new_directed();
+    /// graph.add_node("a");
+    /// graph.add_node("b");
+    /// graph.add_edge("a", "b", 1).unwrap();
+    /// assert_eq!(graph.edge_count(), 1);
+    /// ```
     #[must_use]
     pub fn edge_count(&self) -> usize {
         self.edge_count
@@ -135,6 +229,18 @@ impl<T: Ord + Clone> Graph<T> {
     /// Devuelve `true` si la arista era nueva y `false` si solo actualizo peso.
     ///
     /// Complejidad: O(log n).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let mut graph = Graph::new_directed();
+    /// graph.add_node("a");
+    /// graph.add_node("b");
+    ///
+    /// assert!(graph.add_edge("a", "b", 5).unwrap());
+    /// assert!(!graph.add_edge("a", "b", 8).unwrap());
+    /// assert_eq!(graph.edge_weight("a", "b"), Some(8));
+    /// ```
     pub fn add_edge(&mut self, from: T, to: T, weight: Weight) -> Result<bool, GraphError> {
         if !self.adjacency.contains_key(&from) || !self.adjacency.contains_key(&to) {
             return Err(GraphError::MissingNode);
@@ -164,6 +270,18 @@ impl<T: Ord + Clone> Graph<T> {
     /// Remueve una arista, si existe.
     ///
     /// Complejidad: O(log n).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let mut graph = Graph::new_directed();
+    /// graph.add_node("a");
+    /// graph.add_node("b");
+    /// graph.add_edge("a", "b", 1).unwrap();
+    ///
+    /// assert!(graph.remove_edge("a", "b"));
+    /// assert!(!graph.has_edge("a", "b"));
+    /// ```
     pub fn remove_edge(&mut self, from: T, to: T) -> bool {
         let removed = self
             .adjacency
@@ -186,6 +304,19 @@ impl<T: Ord + Clone> Graph<T> {
     /// Remueve un nodo y todas sus aristas incidentes.
     ///
     /// Complejidad: O(n log n + e).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let mut graph = Graph::new_directed();
+    /// graph.add_node("a");
+    /// graph.add_node("b");
+    /// graph.add_edge("a", "b", 1).unwrap();
+    ///
+    /// assert!(graph.remove_node("a"));
+    /// assert_eq!(graph.node_count(), 1);
+    /// assert_eq!(graph.edge_count(), 0);
+    /// ```
     pub fn remove_node(&mut self, node: T) -> bool {
         let Some(outgoing) = self.adjacency.remove(&node) else {
             return false;
@@ -213,6 +344,16 @@ impl<T: Ord + Clone> Graph<T> {
     /// Indica si una arista existe.
     ///
     /// Complejidad: O(log n).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let mut graph = Graph::new_directed();
+    /// graph.add_node("a");
+    /// graph.add_node("b");
+    /// graph.add_edge("a", "b", 1).unwrap();
+    /// assert!(graph.has_edge("a", "b"));
+    /// ```
     #[must_use]
     pub fn has_edge(&self, from: T, to: T) -> bool {
         self.adjacency
@@ -223,6 +364,16 @@ impl<T: Ord + Clone> Graph<T> {
     /// Devuelve el peso de una arista.
     ///
     /// Complejidad: O(log n).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let mut graph = Graph::new_directed();
+    /// graph.add_node("a");
+    /// graph.add_node("b");
+    /// graph.add_edge("a", "b", 4).unwrap();
+    /// assert_eq!(graph.edge_weight("a", "b"), Some(4));
+    /// ```
     #[must_use]
     pub fn edge_weight(&self, from: T, to: T) -> Option<Weight> {
         self.adjacency
@@ -234,6 +385,16 @@ impl<T: Ord + Clone> Graph<T> {
     /// Devuelve vecinos en orden determinista.
     ///
     /// Complejidad: O(d), donde `d` es el grado de salida.
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let mut graph = Graph::new_directed();
+    /// graph.add_node("a");
+    /// graph.add_node("b");
+    /// graph.add_edge("a", "b", 2).unwrap();
+    /// assert_eq!(graph.neighbors("a"), Some(vec![("b", 2)]));
+    /// ```
     #[must_use]
     pub fn neighbors(&self, node: T) -> Option<Vec<(T, Weight)>> {
         self.adjacency.get(&node).map(|neighbors| {
@@ -247,6 +408,16 @@ impl<T: Ord + Clone> Graph<T> {
     /// Devuelve una lista de aristas en orden determinista.
     ///
     /// Complejidad: O(n + e).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::Graph;
+    ///
+    /// let mut graph = Graph::new_undirected();
+    /// graph.add_node("a");
+    /// graph.add_node("b");
+    /// graph.add_edge("a", "b", 2).unwrap();
+    /// assert_eq!(graph.edges().len(), 1);
+    /// ```
     #[must_use]
     pub fn edges(&self) -> Vec<Edge<T>> {
         let mut edges = Vec::new();
@@ -271,6 +442,15 @@ impl<T: Ord + Clone> Graph<T> {
 
 impl<T: Ord + Clone> AdjacencyMatrix<T> {
     /// Crea una matriz dirigida.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::AdjacencyMatrix;
+    ///
+    /// let graph = AdjacencyMatrix::<&str>::new_directed();
+    /// assert!(graph.is_directed());
+    /// ```
     #[must_use]
     pub fn new_directed() -> Self {
         Self {
@@ -282,6 +462,15 @@ impl<T: Ord + Clone> AdjacencyMatrix<T> {
     }
 
     /// Crea una matriz no dirigida.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::AdjacencyMatrix;
+    ///
+    /// let graph = AdjacencyMatrix::<&str>::new_undirected();
+    /// assert!(!graph.is_directed());
+    /// ```
     #[must_use]
     pub fn new_undirected() -> Self {
         Self {
@@ -293,6 +482,14 @@ impl<T: Ord + Clone> AdjacencyMatrix<T> {
     }
 
     /// Indica si la matriz representa un grafo dirigido.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::AdjacencyMatrix;
+    ///
+    /// assert!(AdjacencyMatrix::<i32>::new_directed().is_directed());
+    /// ```
     #[must_use]
     pub fn is_directed(&self) -> bool {
         self.directed
@@ -301,6 +498,14 @@ impl<T: Ord + Clone> AdjacencyMatrix<T> {
     /// Agrega un nodo y expande la matriz.
     ///
     /// Complejidad: O(n^2) por realocacion de filas.
+    ///
+    /// ```
+    /// use rust_data_structures::graph::AdjacencyMatrix;
+    ///
+    /// let mut graph = AdjacencyMatrix::new_directed();
+    /// assert!(graph.add_node("a"));
+    /// assert!(!graph.add_node("a"));
+    /// ```
     pub fn add_node(&mut self, node: T) -> bool {
         if self.index_of(&node).is_some() {
             return false;
@@ -315,18 +520,52 @@ impl<T: Ord + Clone> AdjacencyMatrix<T> {
     }
 
     /// Devuelve el numero de nodos.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::AdjacencyMatrix;
+    ///
+    /// let mut graph = AdjacencyMatrix::new_directed();
+    /// graph.add_node("a");
+    /// assert_eq!(graph.node_count(), 1);
+    /// ```
     #[must_use]
     pub fn node_count(&self) -> usize {
         self.nodes.len()
     }
 
     /// Devuelve el numero logico de aristas.
+    ///
+    /// Complejidad: O(1).
+    ///
+    /// ```
+    /// use rust_data_structures::graph::AdjacencyMatrix;
+    ///
+    /// let mut graph = AdjacencyMatrix::new_directed();
+    /// graph.add_node("a");
+    /// graph.add_node("b");
+    /// graph.add_edge("a", "b", 1).unwrap();
+    /// assert_eq!(graph.edge_count(), 1);
+    /// ```
     #[must_use]
     pub fn edge_count(&self) -> usize {
         self.edge_count
     }
 
     /// Agrega o actualiza una arista.
+    ///
+    /// Complejidad: O(n) por busqueda lineal de indices.
+    ///
+    /// ```
+    /// use rust_data_structures::graph::AdjacencyMatrix;
+    ///
+    /// let mut graph = AdjacencyMatrix::new_directed();
+    /// graph.add_node("a");
+    /// graph.add_node("b");
+    /// assert!(graph.add_edge("a", "b", 3).unwrap());
+    /// assert_eq!(graph.edge_weight("a", "b"), Some(3));
+    /// ```
     pub fn add_edge(&mut self, from: T, to: T, weight: Weight) -> Result<bool, GraphError> {
         let Some(from_index) = self.index_of(&from) else {
             return Err(GraphError::MissingNode);
@@ -350,12 +589,36 @@ impl<T: Ord + Clone> AdjacencyMatrix<T> {
     }
 
     /// Indica si una arista existe.
+    ///
+    /// Complejidad: O(n) por busqueda lineal de indices.
+    ///
+    /// ```
+    /// use rust_data_structures::graph::AdjacencyMatrix;
+    ///
+    /// let mut graph = AdjacencyMatrix::new_directed();
+    /// graph.add_node("a");
+    /// graph.add_node("b");
+    /// graph.add_edge("a", "b", 3).unwrap();
+    /// assert!(graph.has_edge("a", "b"));
+    /// ```
     #[must_use]
     pub fn has_edge(&self, from: T, to: T) -> bool {
         self.edge_weight(from, to).is_some()
     }
 
     /// Devuelve el peso de una arista.
+    ///
+    /// Complejidad: O(n) por busqueda lineal de indices.
+    ///
+    /// ```
+    /// use rust_data_structures::graph::AdjacencyMatrix;
+    ///
+    /// let mut graph = AdjacencyMatrix::new_directed();
+    /// graph.add_node("a");
+    /// graph.add_node("b");
+    /// graph.add_edge("a", "b", 3).unwrap();
+    /// assert_eq!(graph.edge_weight("a", "b"), Some(3));
+    /// ```
     #[must_use]
     pub fn edge_weight(&self, from: T, to: T) -> Option<Weight> {
         let from_index = self.index_of(&from)?;
