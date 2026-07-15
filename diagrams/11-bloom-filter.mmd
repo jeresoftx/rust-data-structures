@@ -1,0 +1,38 @@
+flowchart TB
+    title["Bloom Filter: pertenencia probabilistica"]
+
+    value["valor: url:/manual/rfc-0001"]
+    h1["hash 1"]
+    h2["hash 2"]
+    h3["hash 3"]
+
+    value --> h1
+    value --> h2
+    value --> h3
+
+    subgraph bits["Arreglo de bits"]
+        b0["0: 0"]
+        b1["1: 1"]
+        b2["2: 0"]
+        b3["3: 1"]
+        b4["4: 0"]
+        b5["5: 1"]
+        b6["6: 0"]
+    end
+
+    h1 --> b1
+    h2 --> b3
+    h3 --> b5
+
+    insert["insert<br/>enciende k bits"]
+    query["might_contain<br/>revisa k bits"]
+    missing["algun bit en 0<br/>definitivamente no esta"]
+    maybe["todos en 1<br/>podria estar"]
+    fp["falso positivo<br/>colision de bits"]
+    nofn["sin falsos negativos<br/>si se inserto, sus bits siguen en 1"]
+
+    value --> insert --> bits
+    bits --> query
+    query --> missing
+    query --> maybe --> fp
+    maybe --> nofn

@@ -133,6 +133,18 @@ path = "examples/soluciones/hashmap_collision_chain.rs"
 name = "solution_hashmap_cache_remove"
 path = "examples/soluciones/hashmap_cache_remove.rs"
 
+[[example]]
+name = "solution_bloom_filter_cache_guard"
+path = "examples/soluciones/bloom_filter_cache_guard.rs"
+
+[[example]]
+name = "solution_bloom_filter_size_estimate"
+path = "examples/soluciones/bloom_filter_size_estimate.rs"
+
+[[example]]
+name = "solution_bloom_filter_false_positive_probe"
+path = "examples/soluciones/bloom_filter_false_positive_probe.rs"
+
 [[bench]]
 name = "vector_bench"
 path = "benches/vector_bench.rs"
@@ -181,4 +193,9 @@ harness = false
 [[bench]]
 name = "hashmap_bench"
 path = "benches/hashmap_bench.rs"
+harness = false
+
+[[bench]]
+name = "bloom_filter_bench"
+path = "benches/bloom_filter_bench.rs"
 harness = false
