@@ -338,6 +338,12 @@ primer elemento o necesita insertar por prioridad. En ese caso, un deque o heap
 podria expresar mejor el problema. La decision no depende de si una estructura
 es "mas avanzada"; depende de la operacion dominante.
 
+## Conexiones con cursos futuros
+
+Mas adelante, `rust-algorithms` reutilizara `Vector` como base natural para
+busqueda binaria, ordenamiento, dos punteros, ventanas sobre arreglos y tablas
+dinamicas. Aqui solo fijamos representacion, crecimiento e invariantes.
+
 ## Referencias
 
 - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein,

@@ -317,6 +317,12 @@ trabajadores roban unidades mas antiguas desde el frente. La invariante clave es
 que cada tarea vive una sola vez en el deque y que cada extraccion transfiere
 ownership logico de esa tarea.
 
+## Conexiones con cursos futuros
+
+Mas adelante, `rust-algorithms` reutilizara `Deque` para ventanas deslizantes,
+BFS bidireccional, colas monotonicas y tecnicas donde ambos extremos importan.
+Aqui solo fijamos doble extremo, wraparound y costos operativos.
+
 ## Referencias
 
 - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein,

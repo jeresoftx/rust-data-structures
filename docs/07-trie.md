@@ -316,6 +316,12 @@ El costo es que cada operacion debe comparar segmentos, partir nodos cuando hay
 divergencia y cuidar mas casos en borrado. La invariante deja de ser "un nodo
 por char" y pasa a ser "un nodo por segmento comun".
 
+## Conexiones con cursos futuros
+
+Mas adelante, `rust-algorithms` reutilizara `Trie` para autocomplete, matching
+por prefijo, diccionarios, ruteo por cadenas y busquedas sobre alfabetos. Aqui
+solo fijamos nodos, terminales, prefijos y politica Unicode.
+
 ## Referencias
 
 - Robert Sedgewick y Kevin Wayne, *Algorithms*, secciones de tries.

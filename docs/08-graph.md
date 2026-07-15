@@ -366,6 +366,16 @@ consultas de existencia puede justificar matriz si la memoria cabe. Un archivo
 de intercambio entre sistemas puede ser lista de aristas porque es facil de
 serializar, ordenar, auditar y transformar.
 
+## Conexiones con cursos futuros
+
+Mas adelante, `rust-algorithms` reutilizara `Graph` para BFS, DFS, caminos
+minimos, arboles de expansion, orden topologico y componentes conectados. Aqui
+solo fijamos representacion, direccion, peso y operaciones estructurales.
+
+Tambien aparecera como modelo en system design y distributed systems: grafos de
+dependencias, topologias de servicios, rutas, ownership de datos y propagacion
+entre nodos. Esas conexiones se citaran alli sin mover algoritmos a este repo.
+
 ## Referencias
 
 - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest y Clifford Stein,

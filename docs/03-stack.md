@@ -286,6 +286,12 @@ recursión profunda o guardar estado adicional por frame. El tradeoff es que el
 programa debe hacer visible lo que antes hacía el call stack: qué falta visitar,
 qué resultado parcial existe y cuándo se termina un frame.
 
+## Conexiones con cursos futuros
+
+Mas adelante, `rust-algorithms` reutilizara `Stack` para recorrido DFS,
+backtracking, validacion de parentesis, evaluacion de expresiones y simulacion
+explicita de llamadas recursivas. Aqui solo fijamos LIFO, invariantes y API.
+
 ## Referencias
 
 - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein,

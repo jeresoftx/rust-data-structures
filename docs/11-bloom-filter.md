@@ -381,6 +381,13 @@ overflow y evitar borrar valores que nunca fueron insertados. Si esos invariante
 fallan, la estructura puede crear falsos negativos, justo lo que el Bloom Filter
 clasico evita.
 
+## Conexiones con cursos futuros
+
+Mas adelante, cursos de database internals, caches y distributed systems
+reutilizaran Bloom filters para evitar lecturas innecesarias, resumir conjuntos,
+filtrar claves por segmento y reducir trafico entre nodos. Aqui solo fijamos
+pertenencia probabilistica, falsos positivos y dimensionamiento.
+
 ## Referencias
 
 - Burton H. Bloom, "Space/Time Trade-offs in Hash Coding with Allowable Errors",

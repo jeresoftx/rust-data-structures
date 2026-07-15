@@ -315,6 +315,12 @@ bajar: si el hijo tiene pocas claves, toma prestado de un hermano con excedente
 o fusiona con un hermano y baja una clave del padre. Si borras una clave interna,
 reemplazala por predecesor o sucesor desde un subarbol con espacio suficiente.
 
+## Conexiones con cursos futuros
+
+Mas adelante, `rust-database-internals` reutilizara `BTree` para indices por
+pagina, busqueda por rango, fanout, localidad y layouts persistentes. Aqui solo
+fijamos busqueda multiway, split, orden e invariantes en memoria.
+
 ## Referencias
 
 - Rudolf Bayer y Edward M. McCreight, articulo original sobre B-trees.

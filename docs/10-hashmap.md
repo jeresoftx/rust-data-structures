@@ -312,6 +312,12 @@ quadratic probing o double hashing. El borrado necesita tombstones para no corta
 las secuencias de busqueda. El resize debe reinserta entradas vivas y descartar
 tombstones.
 
+## Conexiones con cursos futuros
+
+Mas adelante, `rust-algorithms` reutilizara `HashMap` para conteos,
+deduplicacion, memoizacion, two-sum, indices auxiliares y tablas de simbolos.
+Aqui solo fijamos hashing, buckets, colisiones y factor de carga.
+
 ## Referencias
 
 - Rust Standard Library, `std::collections::HashMap`.

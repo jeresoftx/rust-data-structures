@@ -318,6 +318,12 @@ para eventos donde solo importa el estado reciente. Fusionar trabajos exige mas
 logica, pero puede reducir trabajo duplicado. La invariante importante es que el
 sistema no acepte trabajo ilimitado sin una decision explicita.
 
+## Conexiones con cursos futuros
+
+Mas adelante, `rust-algorithms` reutilizara `Queue` para BFS, procesamiento por
+niveles, simulaciones discretas y planificacion FIFO. Aqui solo fijamos FIFO,
+buffer circular e invariantes de crecimiento.
+
 ## Referencias
 
 - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein,

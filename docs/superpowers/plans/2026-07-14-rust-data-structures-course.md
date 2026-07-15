@@ -363,11 +363,11 @@ For each chapter, complete the following checklist before moving to the next str
 
 ## Cross-Course Integration
 
-- [ ] Add references from vector, stack, queue, deque, heap, trie, graph, and hashmap to future `rust-algorithms` chapters where algorithms use them.
-- [ ] Add references from B-tree to future `rust-database-internals`.
-- [ ] Add references from graph to future system design and distributed systems where graph modeling appears.
-- [ ] Add references from Bloom filter and skip list to future database, cache, and distributed systems material.
-- [ ] Keep every cross-course link as a citation or "later in the path" note, not a full re-explanation.
+- [x] Add references from vector, stack, queue, deque, heap, trie, graph, and hashmap to future `rust-algorithms` chapters where algorithms use them.
+- [x] Add references from B-tree to future `rust-database-internals`.
+- [x] Add references from graph to future system design and distributed systems where graph modeling appears.
+- [x] Add references from Bloom filter and skip list to future database, cache, and distributed systems material.
+- [x] Keep every cross-course link as a citation or "later in the path" note, not a full re-explanation.
 
 ## Final Course Completion
 

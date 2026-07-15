@@ -364,6 +364,13 @@ el valor anterior. `get` y `get_mut` devolverian referencias al valor, mientras
 que `iter` podria producir `(&K, &V)` en orden ascendente. La parte delicada no
 es el orden, sino mantener ownership claro al reemplazar o remover valores.
 
+## Conexiones con cursos futuros
+
+Mas adelante, cursos de database internals, caches y distributed systems
+reutilizaran skip lists para indices ordenados en memoria, estructuras
+concurrent-friendly, ventanas por timestamp y niveles de almacenamiento. Aqui
+solo fijamos niveles probabilisticos, busqueda esperada e invariantes.
+
 ## Referencias
 
 - William Pugh, "Skip Lists: A Probabilistic Alternative to Balanced Trees",

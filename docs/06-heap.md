@@ -320,6 +320,12 @@ el aprendizaje enfocado. Para prioridades custom, un wrapper que implemente
 almacenado puede ser util, pero obliga a decidir como se guarda la funcion, como
 se clona y como afecta la firma publica.
 
+## Conexiones con cursos futuros
+
+Mas adelante, `rust-algorithms` reutilizara `Heap` para heapsort, top-k,
+seleccion por prioridad, Dijkstra, Prim y planificadores. Aqui solo fijamos
+propiedad heap, `sift up`, `sift down`, `heapify` e invariantes.
+
 ## Referencias
 
 - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein,
