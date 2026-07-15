@@ -355,11 +355,11 @@ For each chapter, complete the following checklist before moving to the next str
 - Create: `examples/skip_list_advanced.rs`
 - Create: `examples/skip_list_real_case.rs`
 
-- [ ] Teach probabilistic levels, expected logarithmic search, insertion, deletion, iteration, and randomization.
-- [ ] Compare against B-tree, balanced binary trees, sorted vectors, and linked lists.
-- [ ] Include real cases: ordered indexes, in-memory stores, concurrent-friendly ordered maps.
-- [ ] Include tests for search, insert, delete, ordering, duplicate policy, seeded level generation, and edge cases.
-- [ ] Include benchmarks for random inserts, ordered inserts, search, and iteration.
+- [x] Teach probabilistic levels, expected logarithmic search, insertion, deletion, iteration, and randomization.
+- [x] Compare against B-tree, balanced binary trees, sorted vectors, and linked lists.
+- [x] Include real cases: ordered indexes, in-memory stores, concurrent-friendly ordered maps.
+- [x] Include tests for search, insert, delete, ordering, duplicate policy, seeded level generation, and edge cases.
+- [x] Include benchmarks for random inserts, ordered inserts, search, and iteration.
 
 ## Cross-Course Integration
 

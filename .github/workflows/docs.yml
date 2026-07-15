@@ -31,6 +31,7 @@ jobs:
           test -s docs/09-btree.md
           test -s docs/10-hashmap.md
           test -s docs/11-bloom-filter.md
+          test -s docs/12-skip-list.md
           test -s examples/README.md
           test -s tests/README.md
           test -s benches/README.md
@@ -45,6 +46,7 @@ jobs:
           test -s benches/btree_bench.rs
           test -s benches/hashmap_bench.rs
           test -s benches/bloom_filter_bench.rs
+          test -s benches/skip_list_bench.rs
           test -s diagrams/README.md
           test -s diagrams/01-vector.mmd
           test -s diagrams/02-linked-list.mmd
@@ -57,6 +59,7 @@ jobs:
           test -s diagrams/09-btree.mmd
           test -s diagrams/10-hashmap.mmd
           test -s diagrams/11-bloom-filter.mmd
+          test -s diagrams/12-skip-list.mmd
           test -s assets/README.md
 
           grep -q "Vector" docs/SUMMARY.md

@@ -41,7 +41,7 @@ un algoritmo sea necesario para explicar la propia estructura.
 | 09 | B-Tree | `src/btree.rs` | benchmarked |
 | 10 | HashMap | `src/hashmap.rs` | benchmarked |
 | 11 | Bloom Filter | `src/bloom_filter.rs` | benchmarked |
-| 12 | Skip List | `src/skip_list.rs` | planned |
+| 12 | Skip List | `src/skip_list.rs` | benchmarked |
 
 Estados posibles: `planned`, `draft`, `implemented`, `tested`,
 `benchmarked`, `reviewed`, `published`.
