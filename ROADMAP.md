@@ -28,7 +28,7 @@ El checklist detallado vive en
 | 07 | Trie | benchmarked |
 | 08 | Graph | benchmarked |
 | 09 | B-Tree | benchmarked |
-| 10 | HashMap | planned |
+| 10 | HashMap | benchmarked |
 | 11 | Bloom Filter | planned |
 | 12 | Skip List | planned |
 

@@ -317,11 +317,11 @@ For each chapter, complete the following checklist before moving to the next str
 - Create: `examples/hashmap_advanced.rs`
 - Create: `examples/hashmap_real_case.rs`
 
-- [ ] Teach hashing, buckets, collisions, load factor, resizing, separate chaining vs open addressing, lookup, insert, remove, and iteration tradeoffs.
-- [ ] Compare against B-tree, vector search, trie, and perfect hashing.
-- [ ] Include real cases: caches, indexes, deduplication, counting frequencies.
-- [ ] Include tests for collision handling, overwrite, remove, resize, missing keys, and iteration consistency.
-- [ ] Include benchmarks for inserts/lookups under normal and high-collision scenarios.
+- [x] Teach hashing, buckets, collisions, load factor, resizing, separate chaining vs open addressing, lookup, insert, remove, and iteration tradeoffs.
+- [x] Compare against B-tree, vector search, trie, and perfect hashing.
+- [x] Include real cases: caches, indexes, deduplication, counting frequencies.
+- [x] Include tests for collision handling, overwrite, remove, resize, missing keys, and iteration consistency.
+- [x] Include benchmarks for inserts/lookups under normal and high-collision scenarios.
 
 ### Task 15: Bloom Filter
 
