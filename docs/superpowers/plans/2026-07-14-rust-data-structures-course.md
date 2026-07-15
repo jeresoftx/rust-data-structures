@@ -297,12 +297,12 @@ For each chapter, complete the following checklist before moving to the next str
 - Create: `examples/btree_advanced.rs`
 - Create: `examples/btree_real_case.rs`
 
-- [ ] Teach multiway search trees, node capacity, sorted keys, splitting, searching, insertion, deletion strategy, and cache/page locality.
-- [ ] Explain why B-tree is canonical here and reused later by database internals.
-- [ ] Compare against binary search tree, red-black tree, skip list, and hashmap.
-- [ ] Include real cases: filesystems, databases, ordered maps.
-- [ ] Include tests for insertion, search, split, sorted iteration, duplicate policy, and deletion if implemented.
-- [ ] Include benchmarks for search and insertion under ordered and random input.
+- [x] Teach multiway search trees, node capacity, sorted keys, splitting, searching, insertion, deletion strategy, and cache/page locality.
+- [x] Explain why B-tree is canonical here and reused later by database internals.
+- [x] Compare against binary search tree, red-black tree, skip list, and hashmap.
+- [x] Include real cases: filesystems, databases, ordered maps.
+- [x] Include tests for insertion, search, split, sorted iteration, duplicate policy, and deletion if implemented.
+- [x] Include benchmarks for search and insertion under ordered and random input.
 
 ### Task 14: HashMap
 

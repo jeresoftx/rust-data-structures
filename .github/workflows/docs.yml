@@ -28,6 +28,7 @@ jobs:
           test -s docs/06-heap.md
           test -s docs/07-trie.md
           test -s docs/08-graph.md
+          test -s docs/09-btree.md
           test -s examples/README.md
           test -s tests/README.md
           test -s benches/README.md
@@ -39,6 +40,7 @@ jobs:
           test -s benches/heap_bench.rs
           test -s benches/trie_bench.rs
           test -s benches/graph_bench.rs
+          test -s benches/btree_bench.rs
           test -s diagrams/README.md
           test -s diagrams/01-vector.mmd
           test -s diagrams/02-linked-list.mmd
@@ -48,6 +50,7 @@ jobs:
           test -s diagrams/06-heap.mmd
           test -s diagrams/07-trie.mmd
           test -s diagrams/08-graph.mmd
+          test -s diagrams/09-btree.mmd
           test -s assets/README.md
 
           grep -q "Vector" docs/SUMMARY.md
